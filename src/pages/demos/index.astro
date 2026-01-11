@@ -1,0 +1,409 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const demos = [
+  {
+    slug: "hills-legal",
+    title: "Hills Legal Partners",
+    category: "Law Firm",
+    tech: "Laravel + Tailwind",
+    color: "#1a365d",
+    description: "Professional law firm website with practice areas, attorney profiles, and case enquiry forms.",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "smile-dental",
+    title: "Smile Dental Castle Hill",
+    category: "Dental Clinic",
+    tech: "Django + Bootstrap",
+    color: "#0d9488",
+    description: "Modern dental practice with online booking, service pages, and patient resources.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "parramatta-medical",
+    title: "Parramatta Family Medical",
+    category: "Medical Centre",
+    tech: "PHP + Custom CSS",
+    color: "#2563eb",
+    description: "Healthcare centre with doctor profiles, appointment booking, and health resources.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "align-chiro",
+    title: "Align Chiropractic",
+    category: "Chiropractor",
+    tech: "Next.js + Styled Components",
+    color: "#059669",
+    description: "Wellness-focused chiropractic clinic with treatment info and online scheduling.",
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "prime-cuts",
+    title: "Prime Cuts Barbershop",
+    category: "Barber",
+    tech: "Vue.js + Vuetify",
+    color: "#292524",
+    description: "Trendy barbershop with service menu, gallery, and booking system.",
+    image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "bella-hair",
+    title: "Bella Hair Studio",
+    category: "Hair Salon",
+    tech: "Ruby on Rails + SCSS",
+    color: "#be185d",
+    description: "Elegant hair salon with stylist profiles, treatments menu, and appointments.",
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "peak-fitness",
+    title: "Peak Fitness Gym",
+    category: "Gym & Fitness",
+    tech: "React + Material UI",
+    color: "#dc2626",
+    description: "High-energy gym website with class schedules, membership plans, and trainer bios.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "mindful-psychology",
+    title: "Mindful Psychology",
+    category: "Psychology Practice",
+    tech: "Astro + Tailwind",
+    color: "#7c3aed",
+    description: "Calming psychology practice site with therapist profiles and session booking.",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "homekey-conveyancing",
+    title: "HomeKey Conveyancing",
+    category: "Conveyancer",
+    tech: "Laravel + Alpine.js",
+    color: "#0369a1",
+    description: "Property conveyancing firm with service calculator and document portal.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "hills-home-loans",
+    title: "Hills Home Loans",
+    category: "Mortgage Broker",
+    tech: "Django + React",
+    color: "#047857",
+    description: "Mortgage broker with loan calculator, lender comparison, and application forms.",
+    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "shield-insurance",
+    title: "Shield Insurance Group",
+    category: "Insurance Agent",
+    tech: "PHP + jQuery",
+    color: "#1e40af",
+    description: "Insurance agency with quote generator, policy info, and claims portal.",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "outback-goods",
+    title: "Outback Goods Co",
+    category: "Shopify Store",
+    tech: "Shopify + Liquid",
+    color: "#b45309",
+    description: "E-commerce store selling Australian-made products with full checkout.",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=500&h=300&fit=crop"
+  },
+  {
+    slug: "skills-academy",
+    title: "Skills Academy Australia",
+    category: "Training College",
+    tech: "WordPress + LearnDash",
+    color: "#4f46e5",
+    description: "Vocational training college with course catalog, enrolment, and student portal.",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=300&fit=crop"
+  }
+];
+---
+
+<Layout title="Demo Websites | Sample Templates | Cosmos Web Tech" description="Browse our collection of sample website templates for various industries including lawyers, dentists, gyms, and more.">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
+              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="25" cy="42" r="2" fill="#64748b"/>
+              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Cosmos Web Tech</span>
+            <span class="brand-tagline">Your Digital Universe</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos" class="active">Demos</a></li>
+          <li><a href="/contact" class="btn btn-primary btn-small">Get Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Demo Websites</h1>
+      <p>Explore our sample templates for different industries and technologies</p>
+    </div>
+  </section>
+
+  <section class="demos-section">
+    <div class="container">
+      <p class="intro-text">These demo websites showcase our design capabilities across various industries common in Hills District and Western Sydney. Each template demonstrates different technology stacks and design approaches.</p>
+
+      <div class="demos-grid">
+        {demos.map(demo => (
+          <a href={`/demos/${demo.slug}`} class="demo-card">
+            <div class="demo-preview">
+              <img src={demo.image} alt={demo.title} loading="lazy" />
+              <div class="demo-overlay" style={`background: linear-gradient(135deg, ${demo.color}cc 0%, ${demo.color}99 100%);`}>
+                <span class="demo-view">View Demo</span>
+              </div>
+            </div>
+            <div class="demo-info">
+              <span class="demo-category">{demo.category}</span>
+              <h3>{demo.title}</h3>
+              <p>{demo.description}</p>
+              <div class="demo-meta">
+                <span class="demo-tech">{demo.tech}</span>
+                <span class="demo-link">View Demo →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="demos-cta">
+        <h2>Like What You See?</h2>
+        <p>These templates can be customized for your business. Contact us to discuss your project.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Get a Custom Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="10" r="3" fill="#ffffff"/><circle cx="10" cy="35" r="2.5" fill="#3b82f6"/><circle cx="40" cy="35" r="2.5" fill="#3b82f6"/><line x1="25" y1="13" x2="12" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="13" x2="38" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/></svg>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name" style="color: white;">Cosmos Web Tech</span>
+              <span class="brand-tagline">Your Digital Universe</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/web-design">Web Design</a></li>
+            <li><a href="/services/wordpress">WordPress</a></li>
+            <li><a href="/services/seo">SEO Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>Bella Vista, NSW 2153</li>
+            <li><a href="tel:0433309677">0433 309 677</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Cosmos Web Tech. ABN: 32 164 690 751. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    color: var(--white);
+  }
+  .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+  .page-hero p { color: var(--grey-300); font-size: 1.25rem; }
+
+  .demos-section { padding: 5rem 0; }
+
+  .intro-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--grey);
+    font-size: 1.1rem;
+  }
+
+  .demos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .demo-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--grey-200);
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .demo-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px);
+  }
+
+  .demo-preview {
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .demo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+
+  .demo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .demo-view {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    transform: translateY(10px);
+    transition: transform var(--transition-base);
+  }
+
+  .demo-card:hover .demo-preview img {
+    transform: scale(1.1);
+  }
+
+  .demo-card:hover .demo-overlay {
+    opacity: 1;
+  }
+
+  .demo-card:hover .demo-view {
+    transform: translateY(0);
+  }
+
+  .demo-info {
+    padding: 1.5rem;
+  }
+
+  .demo-category {
+    display: inline-block;
+    background: var(--grey-100);
+    color: var(--grey-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .demo-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--navy-dark);
+  }
+
+  .demo-info p {
+    color: var(--grey);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .demo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .demo-tech {
+    font-size: 0.8rem;
+    color: var(--grey-light);
+    background: var(--grey-100);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .demo-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .demos-cta {
+    margin-top: 4rem;
+    padding: 4rem;
+    background: var(--grey-100);
+    border-radius: 24px;
+    text-align: center;
+  }
+
+  .demos-cta h2 { margin-bottom: 1rem; }
+  .demos-cta p {
+    color: var(--grey);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav-links a.active { color: var(--accent); }
+
+  @media (max-width: 1024px) {
+    .demos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .demos-grid { grid-template-columns: 1fr; }
+    .demos-cta { padding: 2rem; }
+  }
+</style>

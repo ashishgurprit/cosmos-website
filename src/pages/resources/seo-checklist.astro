@@ -1,0 +1,346 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const MAUTIC_FORM_URL = "https://mautic.cloudgeeks.com.au/form/submit?formId=37";
+---
+
+<Layout title="Free SEO Audit Checklist | 50 Points | Cosmos Web Tech" description="Download our 50-point SEO Audit Checklist. Identify issues hurting your Google rankings and learn how to fix them yourself.">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
+              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="25" cy="42" r="2" fill="#64748b"/>
+              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Cosmos Web Tech</span>
+            <span class="brand-tagline">Your Digital Universe</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" class="btn btn-primary btn-small">Get Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="resource-hero" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+    <div class="container">
+      <div class="hero-content">
+        <a href="/resources" class="back-link">← All Resources</a>
+        <span class="resource-badge">Free Checklist</span>
+        <h1>SEO Audit Checklist</h1>
+        <p class="hero-subtitle">50-point checklist to identify SEO issues hurting your Google rankings. Perfect for DIY website owners.</p>
+
+        <div class="hero-features">
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+            <span>50 critical SEO checkpoints</span>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+            <span>Technical SEO basics</span>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+            <span>On-page optimization guide</span>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+            <span>Local SEO tips for Sydney</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-form">
+        <div class="form-card">
+          <h3>Get Your Free Checklist</h3>
+          <p>Enter your details below and we'll send the checklist straight to your inbox.</p>
+
+          <form id="lead-form" class="lead-form">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="john@company.com.au">
+            </div>
+            <div class="form-group">
+              <label for="website">Your Website URL</label>
+              <input type="url" id="website" name="website" placeholder="https://yoursite.com.au">
+            </div>
+            <div class="form-group">
+              <label for="business">Business Name (Optional)</label>
+              <input type="text" id="business" name="business" placeholder="Your Company Pty Ltd">
+            </div>
+            <!-- Cloudflare Turnstile Widget -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzsB5pP7TqT9oRx" data-theme="light"></div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-full" style="background: #8b5cf6;">
+              <span class="btn-text">Download Free Checklist</span>
+              <span class="btn-loading" style="display: none;">Sending...</span>
+            </button>
+            <p class="form-note">We respect your privacy. No spam, ever.</p>
+          </form>
+
+          <div id="form-success" class="form-success" style="display: none;">
+            <div class="success-icon" style="background: #8b5cf6;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+            </div>
+            <h3>Check Your Inbox!</h3>
+            <p>We've sent the SEO Audit Checklist to your email. If you don't see it, check your spam folder.</p>
+            <a href="/services/seo" class="btn btn-primary" style="background: #8b5cf6;">Learn About Our SEO Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-preview">
+    <div class="container">
+      <h2>What's Inside the Checklist</h2>
+      <div class="preview-grid">
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">01</div>
+          <h3>Technical SEO</h3>
+          <p>Site speed, mobile-friendliness, SSL, crawlability, and indexing issues to check.</p>
+        </div>
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">02</div>
+          <h3>On-Page SEO</h3>
+          <p>Title tags, meta descriptions, headings, content optimization, and internal linking.</p>
+        </div>
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">03</div>
+          <h3>Local SEO</h3>
+          <p>Google Business Profile, local citations, reviews, and location-based keywords.</p>
+        </div>
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">04</div>
+          <h3>Content Quality</h3>
+          <p>Content freshness, keyword targeting, user intent, and engagement signals.</p>
+        </div>
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">05</div>
+          <h3>Link Building</h3>
+          <p>Backlink quality, anchor text diversity, and toxic link identification.</p>
+        </div>
+        <div class="preview-item">
+          <div class="preview-number" style="color: #8b5cf6;">06</div>
+          <h3>Analytics Setup</h3>
+          <p>Google Analytics, Search Console, conversion tracking, and goal setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <div class="container">
+      <div class="proof-content">
+        <h2>Improve Your Google Rankings</h2>
+        <p>Most websites have at least 10 SEO issues that are easy to fix once you know what to look for.</p>
+        <div class="proof-stats">
+          <div class="stat">
+            <span class="stat-number" style="color: #8b5cf6;">50</span>
+            <span class="stat-label">Checkpoints</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" style="color: #8b5cf6;">6</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" style="color: #8b5cf6;">DIY</span>
+            <span class="stat-label">Friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="10" r="3" fill="#ffffff"/><circle cx="10" cy="35" r="2.5" fill="#3b82f6"/><circle cx="40" cy="35" r="2.5" fill="#3b82f6"/><line x1="25" y1="13" x2="12" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="13" x2="38" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/></svg>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name" style="color: white;">Cosmos Web Tech</span>
+              <span class="brand-tagline">Your Digital Universe</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/web-design">Web Design</a></li>
+            <li><a href="/services/wordpress">WordPress</a></li>
+            <li><a href="/services/ecommerce">E-commerce</a></li>
+            <li><a href="/services/odoo">Odoo</a></li>
+            <li><a href="/services/seo">SEO Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>Bella Vista, NSW 2153</li>
+            <li><a href="tel:0433309677">0433 309 677</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Cosmos Web Tech. ABN: 32 164 690 751. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .resource-hero { padding: 8rem 0 5rem; color: var(--white); }
+  .resource-hero .container { display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: start; }
+  .back-link { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem; display: inline-block; }
+  .back-link:hover { color: white; }
+  .resource-badge { display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem; }
+  .resource-hero h1 { color: white; font-size: 2.5rem; margin-bottom: 1rem; }
+  .hero-subtitle { color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; }
+  .hero-features { display: flex; flex-direction: column; gap: 0.75rem; }
+  .feature { display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9); }
+  .feature svg { width: 20px; height: 20px; color: white; }
+  .form-card { background: white; border-radius: 16px; padding: 2rem; color: var(--grey-dark); }
+  .form-card h3 { color: var(--navy-dark); margin-bottom: 0.5rem; }
+  .form-card > p { color: var(--grey); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .lead-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group label { display: block; font-weight: 500; color: var(--navy-dark); margin-bottom: 0.3rem; font-size: 0.9rem; }
+  .form-group input { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--grey-200); border-radius: 8px; font-size: 1rem; transition: border-color var(--transition-fast); }
+  .form-group input:focus { outline: none; border-color: #8b5cf6; }
+  .btn-full { width: 100%; }
+  .form-note { text-align: center; font-size: 0.8rem; color: var(--grey); margin-top: 0.5rem; }
+  .form-success { text-align: center; padding: 2rem 0; }
+  .success-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+  .success-icon svg { width: 32px; height: 32px; color: white; }
+  .form-success h3 { color: var(--navy-dark); margin-bottom: 0.5rem; }
+  .form-success p { color: var(--grey); margin-bottom: 1.5rem; }
+  .guide-preview { padding: 5rem 0; background: var(--grey-100); }
+  .guide-preview h2 { text-align: center; margin-bottom: 3rem; }
+  .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .preview-item { background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--grey-200); }
+  .preview-number { font-size: 2rem; font-weight: 700; opacity: 0.3; margin-bottom: 0.5rem; }
+  .preview-item h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--navy-dark); }
+  .preview-item p { color: var(--grey); font-size: 0.95rem; line-height: 1.5; }
+  .social-proof { padding: 5rem 0; text-align: center; }
+  .proof-content h2 { margin-bottom: 0.5rem; }
+  .proof-content > p { color: var(--grey); margin-bottom: 2rem; }
+  .proof-stats { display: flex; justify-content: center; gap: 4rem; }
+  .stat-number { display: block; font-size: 2.5rem; font-weight: 700; }
+  .stat-label { color: var(--grey); font-size: 0.9rem; }
+  @media (max-width: 1024px) { .resource-hero .container { grid-template-columns: 1fr; gap: 2rem; } .preview-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .resource-hero { padding: 6rem 0 3rem; } .resource-hero h1 { font-size: 2rem; } .preview-grid { grid-template-columns: 1fr; } .proof-stats { flex-direction: column; gap: 1.5rem; } }
+</style>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  const form = document.getElementById('lead-form');
+  const formSuccess = document.getElementById('form-success');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Get Turnstile token
+      const turnstileToken = (window as any).turnstile?.getResponse();
+
+      if (!turnstileToken) {
+        alert('Please complete the security check');
+        return;
+      }
+
+      const btnText = form.querySelector('.btn-text');
+      const btnLoading = form.querySelector('.btn-loading');
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+      const data = {
+        turnstileToken,
+        formData: {
+          'mauticform[name]': formData.get('name'),
+          'mauticform[email]': formData.get('email'),
+          'mauticform[website]': formData.get('website') || '',
+          'mauticform[company]': formData.get('business') || '',
+          'mauticform[lead_source]': 'SEO Checklist',
+          'mauticform[formId]': '43'
+        }
+      };
+
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Submission failed');
+        }
+
+        if (typeof (window as any).mt !== 'undefined') {
+          (window as any).mt('send', 'pageview', { page_title: 'SEO Checklist Download' });
+        }
+
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('There was an error submitting the form. Please try again.');
+
+        // Reset button state
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+
+        // Reset Turnstile
+        if ((window as any).turnstile) {
+          (window as any).turnstile.reset();
+        }
+      }
+    });
+  }
+</script>

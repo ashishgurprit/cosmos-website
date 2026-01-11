@@ -1,0 +1,476 @@
+---
+// Demo: Prime Cuts Barbershop
+// Built with: Vue.js + Vuetify (simulated)
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Cuts Barbershop | Men's Grooming | Parramatta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #292524;
+      --gold: #d4a853;
+      --cream: #faf7f2;
+      --text: #1c1917;
+      --text-light: #78716c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; color: var(--text); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn-gold { background: var(--gold); color: var(--primary); }
+    .btn-gold:hover { background: #c49943; }
+    .btn-outline { border: 2px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: var(--primary); }
+
+    .demo-banner {
+      background: var(--gold);
+      color: var(--primary);
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .demo-banner a { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: var(--primary);
+      padding: 1.25rem 0;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.75rem;
+      color: var(--cream);
+      letter-spacing: 3px;
+    }
+    .logo span { color: var(--gold); }
+    .nav { display: flex; gap: 2.5rem; list-style: none; }
+    .nav a { color: var(--cream); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: color 0.2s; }
+    .nav a:hover { color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      background: var(--primary);
+      color: var(--cream);
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 80px;
+      background: var(--gold);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      letter-spacing: 8px;
+      margin-bottom: 1rem;
+    }
+    .hero .tagline {
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 2rem;
+    }
+    .hero p {
+      color: #a8a29e;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Services */
+    .services {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+    }
+    .section-header .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 1px solid #e7e5e4;
+    }
+    .service-item {
+      padding: 2.5rem;
+      border: 1px solid #e7e5e4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+    }
+    .service-item:hover {
+      background: var(--primary);
+      color: var(--cream);
+    }
+    .service-info h3 { font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 0.25rem; }
+    .service-info p { color: var(--text-light); font-size: 0.9rem; }
+    .service-item:hover .service-info p { color: #a8a29e; }
+    .service-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    /* About */
+    .about {
+      padding: 6rem 0;
+      background: var(--primary);
+      color: var(--cream);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-image {
+      background: #44403c;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-image svg { width: 100px; height: 100px; stroke: #78716c; }
+    .about-content h2 { font-size: 2.5rem; letter-spacing: 4px; margin-bottom: 1.5rem; }
+    .about-content p { color: #a8a29e; margin-bottom: 1.5rem; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+    .feature svg { width: 20px; height: 20px; stroke: var(--gold); }
+
+    /* Team */
+    .team {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-card { text-align: center; }
+    .team-photo {
+      width: 200px;
+      height: 200px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid var(--gold);
+    }
+    .team-photo svg { width: 80px; height: 80px; stroke: #57534e; }
+    .team-card h3 { font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 0.25rem; }
+    .team-card .role { color: var(--gold); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
+
+    /* Booking */
+    .booking {
+      padding: 6rem 0;
+      background: var(--primary);
+      text-align: center;
+      color: var(--cream);
+    }
+    .booking h2 { font-size: 2.5rem; letter-spacing: 4px; margin-bottom: 1rem; }
+    .booking p { color: #a8a29e; margin-bottom: 2rem; }
+    .booking-buttons { display: flex; justify-content: center; gap: 1rem; }
+
+    /* Footer */
+    .footer {
+      background: #1c1917;
+      color: var(--cream);
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    .footer h4 { font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-bottom: 1rem; color: var(--gold); }
+    .footer p { color: #a8a29e; font-size: 0.9rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { color: #a8a29e; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom {
+      border-top: 1px solid #44403c;
+      padding-top: 2rem;
+      text-align: center;
+      color: #78716c;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .services-grid, .about-grid, .team-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .booking-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Demo by <a href="/">Cosmos Web Tech</a>. <a href="/contact">Get your barbershop online →</a>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/demos/prime-cuts" class="logo">PRIME<span>CUTS</span></a>
+      <ul class="nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Barbers</a></li>
+        <li><a href="#book">Book Now</a></li>
+      </ul>
+      <a href="#book" class="btn btn-gold">Book Appointment</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="tagline">Est. 2018 • Parramatta</div>
+      <h1>PRIME CUTS</h1>
+      <p>Traditional barbering meets modern style. Experience the finest cuts, shaves, and grooming in Parramatta.</p>
+      <a href="#book" class="btn btn-gold">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Classic Cut</h3>
+            <p>Precision haircut with hot towel finish</p>
+          </div>
+          <div class="service-price">$35</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Skin Fade</h3>
+            <p>Sharp fade with any style on top</p>
+          </div>
+          <div class="service-price">$40</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Hot Towel Shave</h3>
+            <p>Traditional straight razor shave</p>
+          </div>
+          <div class="service-price">$45</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Cut & Shave</h3>
+            <p>The complete grooming experience</p>
+          </div>
+          <div class="service-price">$70</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Beard Trim</h3>
+            <p>Shape and style your beard</p>
+          </div>
+          <div class="service-price">$25</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-info">
+            <h3>Kids Cut</h3>
+            <p>Under 12 years</p>
+          </div>
+          <div class="service-price">$25</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+        </div>
+        <div class="about-content">
+          <h2>Craftsmanship & Tradition</h2>
+          <p>Prime Cuts was founded with a simple mission: to bring traditional barbering back to Parramatta. We believe in the art of the craft, taking time with every client to deliver a perfect cut.</p>
+          <p>Our barbers are trained in both classic and modern techniques, ensuring you get exactly the look you want.</p>
+          <div class="about-features">
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Walk-ins Welcome
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Premium Products
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Relaxed Atmosphere
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Cold Beverages
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet The Barbers</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Marco Rossi</h3>
+          <div class="role">Owner / Master Barber</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Jake Thompson</h3>
+          <div class="role">Senior Barber</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Danny Nguyen</h3>
+          <div class="role">Barber</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="book">
+    <div class="container">
+      <h2>Book Your Appointment</h2>
+      <p>Walk-ins welcome, but booking guarantees your spot.</p>
+      <div class="booking-buttons">
+        <a href="#" class="btn btn-gold">Book Online</a>
+        <a href="tel:0298762000" class="btn btn-outline">Call (02) 9876 2000</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Prime Cuts Barbershop</h4>
+          <p>Traditional barbering meets modern style in the heart of Parramatta.</p>
+          <p style="margin-top: 1rem;">Shop 3, 45 Church Street<br>Parramatta NSW 2150</p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul class="footer-links">
+            <li>Mon-Wed: 9am - 6pm</li>
+            <li>Thu-Fri: 9am - 7pm</li>
+            <li>Saturday: 8am - 5pm</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>(02) 9876 2000</li>
+            <li>hello@primecuts.com.au</li>
+            <li>@primecutsparra</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Prime Cuts Barbershop. | Demo by <a href="/" style="color: var(--gold);">Cosmos Web Tech</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

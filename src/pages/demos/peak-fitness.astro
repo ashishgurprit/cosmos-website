@@ -1,0 +1,556 @@
+---
+// Demo: Peak Fitness Gym - Fitness Centre
+// Built with: React + Material UI (simulated)
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Fitness | Gym & Personal Training | Bella Vista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #dc2626;
+      --primary-dark: #b91c1c;
+      --dark: #111827;
+      --dark-light: #1f2937;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent: #fbbf24;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background: var(--dark); }
+    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-outline { border: 2px solid var(--white); color: var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--dark); }
+    .btn-accent { background: var(--accent); color: var(--dark); }
+    .btn-accent:hover { background: #f59e0b; }
+
+    .demo-banner {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .demo-banner a { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: rgba(17,24,39,0.95);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 35px;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo span { color: var(--primary); }
+    .nav { display: flex; gap: 2rem; list-style: none; }
+    .nav a { color: var(--text-muted); font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.2s; }
+    .nav a:hover { color: var(--white); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+      padding: 12rem 0 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23dc262620" stroke-width="0.5"/></svg>') repeat;
+      background-size: 100px;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: 5rem;
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-cta { display: flex; justify-content: center; gap: 1rem; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid #374151;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--primary); }
+    .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Programs */
+    .programs {
+      padding: 6rem 0;
+      background: var(--dark-light);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .section-header p { color: var(--text-muted); }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .program-card {
+      background: var(--dark);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .program-card:hover { transform: translateY(-10px); }
+    .program-image {
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .program-image svg { width: 80px; height: 80px; stroke: rgba(255,255,255,0.3); }
+    .program-content { padding: 2rem; }
+    .program-content h3 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .program-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .program-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    /* Membership */
+    .membership {
+      padding: 6rem 0;
+      background: var(--dark);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .pricing-card {
+      background: var(--dark-light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    .pricing-card:hover { border-color: var(--primary); }
+    .pricing-card.featured {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      transform: scale(1.05);
+    }
+    .pricing-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pricing-card .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .pricing-card.featured .subtitle { color: rgba(255,255,255,0.8); }
+    .pricing-card .price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-card .price span { font-size: 1rem; }
+    .pricing-card .period { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    .pricing-card.featured .period { color: rgba(255,255,255,0.8); }
+    .pricing-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+    .pricing-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #374151;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .pricing-card.featured .pricing-features li { border-color: rgba(255,255,255,0.2); }
+    .pricing-features svg { width: 18px; height: 18px; stroke: var(--accent); flex-shrink: 0; }
+
+    /* Trainers */
+    .trainers {
+      padding: 6rem 0;
+      background: var(--dark-light);
+    }
+    .trainers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .trainer-card {
+      text-align: center;
+    }
+    .trainer-photo {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--primary);
+    }
+    .trainer-photo svg { width: 60px; height: 60px; stroke: var(--text-muted); }
+    .trainer-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .trainer-card .specialty { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: var(--primary);
+      text-align: center;
+    }
+    .cta h2 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .cta p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .footer p { color: var(--text-muted); font-size: 0.95rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .programs-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .trainers-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-card.featured { transform: none; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .hero-stats { flex-direction: column; gap: 2rem; }
+      .programs-grid, .pricing-grid, .trainers-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .hero-cta { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Demo website by <a href="/">Cosmos Web Tech</a>. <a href="/contact">Build your gym website →</a>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/demos/peak-fitness" class="logo">
+        PEAK<span>FITNESS</span>
+      </a>
+
+      <ul class="nav">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#join" class="btn btn-primary">Join Now</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>UNLEASH YOUR<br><span>POTENTIAL</span></h1>
+      <p>State-of-the-art equipment, expert trainers, and a motivating community. Transform your body and mind at Peak Fitness Bella Vista.</p>
+      <div class="hero-cta">
+        <a href="#join" class="btn btn-primary">Start Free Trial</a>
+        <a href="#programs" class="btn btn-outline">View Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">2000+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Expert Trainers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Weekly Classes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Programs</h2>
+        <p>Something for every fitness level and goal</p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6.5 6.5h11v11h-11z"/>
+              <path d="M3 3h4v4H3zM17 3h4v4h-4zM3 17h4v4H3zM17 17h4v4h-4z"/>
+            </svg>
+          </div>
+          <div class="program-content">
+            <h3>Strength Training</h3>
+            <p>Build muscle and increase strength with our comprehensive weight training programs.</p>
+            <a href="#" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="program-content">
+            <h3>HIIT Classes</h3>
+            <p>High-intensity interval training for maximum calorie burn and fitness gains.</p>
+            <a href="#" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="program-content">
+            <h3>Personal Training</h3>
+            <p>One-on-one coaching tailored to your specific goals and fitness level.</p>
+            <a href="#" class="program-link">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="membership" id="membership">
+    <div class="container">
+      <div class="section-header">
+        <h2>Membership Plans</h2>
+        <p>Choose the plan that fits your lifestyle</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Basic</h3>
+          <div class="subtitle">Get started</div>
+          <div class="price">$49<span>/mo</span></div>
+          <div class="period">No lock-in contract</div>
+          <ul class="pricing-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full gym access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Locker facilities</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Free parking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Peak hours access</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Select Plan</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <h3>Premium</h3>
+          <div class="subtitle">Most popular</div>
+          <div class="price">$79<span>/mo</span></div>
+          <div class="period">12 month commitment</div>
+          <ul class="pricing-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Everything in Basic</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> All group classes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 24/7 access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1 PT session/month</li>
+          </ul>
+          <a href="#" class="btn btn-accent">Select Plan</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <div class="subtitle">All inclusive</div>
+          <div class="price">$129<span>/mo</span></div>
+          <div class="period">12 month commitment</div>
+          <ul class="pricing-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Everything in Premium</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 4 PT sessions/month</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Nutrition coaching</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Bring a friend pass</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Select Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trainers" id="trainers">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Trainers</h2>
+        <p>Expert guidance to help you reach your goals</p>
+      </div>
+
+      <div class="trainers-grid">
+        <div class="trainer-card">
+          <div class="trainer-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Jake Morrison</h3>
+          <div class="specialty">Strength Coach</div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="trainer-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Emma Chen</h3>
+          <div class="specialty">HIIT Specialist</div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="trainer-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Ryan Thompson</h3>
+          <div class="specialty">Boxing Coach</div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="trainer-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Priya Singh</h3>
+          <div class="specialty">Yoga Instructor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="join">
+    <div class="container">
+      <h2>START YOUR TRANSFORMATION TODAY</h2>
+      <p>Get a free 7-day trial and see what Peak Fitness is all about.</p>
+      <a href="#" class="btn btn-accent">Claim Free Trial</a>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>PEAK FITNESS</h4>
+          <p>The Hills District's premier fitness destination. State-of-the-art facilities, expert trainers, and a community that motivates.</p>
+          <p style="margin-top: 1rem;">15 Lexington Drive<br>Bella Vista NSW 2153</p>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul class="footer-links">
+            <li><a href="#">Strength Training</a></li>
+            <li><a href="#">HIIT Classes</a></li>
+            <li><a href="#">Personal Training</a></li>
+            <li><a href="#">Boxing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul class="footer-links">
+            <li>24/7 Member Access</li>
+            <li>Staffed Hours:</li>
+            <li>Mon-Fri: 6am-9pm</li>
+            <li>Sat-Sun: 7am-5pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>(02) 9876 5000</li>
+            <li>info@peakfitness.com.au</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Peak Fitness. | Demo by <a href="/" style="color: var(--primary);">Cosmos Web Tech</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,460 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Professional web design and SEO services in Sydney. Cosmos Web Tech creates stunning websites for Hills District, Parramatta & Western Sydney businesses. Free consultation." } = Astro.props;
+const MAUTIC_URL = "https://mautic.cloudgeeks.com.au";
+const MAUTIC_CONTACT_FORM_URL = "https://mautic.cloudgeeks.com.au/form/submit?formId=39";
+const SITE_URL = "https://cosmoswebtech.com.au";
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).toString().replace(/\/$/, '') || SITE_URL;
+const currentPath = Astro.url.pathname;
+const isBlogPage = currentPath.includes('/blog');
+const isContactPage = currentPath.includes('/contact');
+const isResourcePage = currentPath.includes('/resources');
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="geo.region" content="AU-NSW" />
+    <meta name="geo.placename" content="Bella Vista" />
+    <meta name="geo.position" content="-33.7630;150.9927" />
+    <meta name="ICBM" content="-33.7630, 150.9927" />
+
+    <!-- SEO Keywords -->
+    <meta name="keywords" content="web design sydney, website development parramatta, seo services hills district, wordpress developer western sydney, google ads management, web design bella vista, small business websites australia" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content="https://cosmoswebtech.com.au/images/og-image.png" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:site_name" content="Cosmos Web Tech" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+
+    <!-- Google Analytics (GA4) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9NFCBVPD6"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W9NFCBVPD6');
+    </script>
+
+    <!-- Preconnect to third-party domains for performance -->
+    <link rel="preconnect" href="https://mautic.cloudgeeks.com.au" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://challenges.cloudflare.com" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Cloudflare Turnstile for spam protection -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Cosmos Web Tech",
+      "description": "Professional web design, SEO and digital marketing services for Sydney businesses",
+      "url": "https://cosmoswebtech.com.au",
+      "telephone": "+61433309677",
+      "email": "hello@cosmoswebtech.com.au",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "608/8 Elizabeth Macarthur Drive, Bella Vista",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "postalCode": "2153",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.7630,
+        "longitude": 150.9927
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Bella Vista"},
+        {"@type": "City", "name": "Parramatta"},
+        {"@type": "City", "name": "Castle Hill"},
+        {"@type": "City", "name": "Blacktown"},
+        {"@type": "City", "name": "Hornsby"}
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "image": "https://cosmoswebtech.com.au/images/logo.png",
+      "serviceType": ["Web Design", "Web Development", "SEO", "Google Ads", "WordPress Development"],
+      "sameAs": ["https://linkedin.com/company/cosmoswebtech", "https://facebook.com/cosmoswebtech"]
+    }
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Free Website Cost Guide 2025 - Understand pricing before you talk to developers</span>
+          <a href="/resources/website-cost-guide">Download Free →</a>
+        </p>
+      </div>
+    </div>
+
+    <slot />
+
+    <!-- Compact Scrolling Lead Magnet (shown on non-blog, non-contact, non-resource pages) -->
+    {!isBlogPage && !isContactPage && !isResourcePage && (
+      <a href="/resources/website-cost-guide" class="floating-lead-magnet">
+        <div class="flm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div class="flm-content">
+          <span class="flm-label">Free Guide</span>
+          <span class="flm-title">Website Cost Guide 2025</span>
+        </div>
+        <span class="flm-arrow">→</span>
+      </a>
+    )}
+
+    <!-- Footer Contact Form Section -->
+    <section class="footer-contact-section">
+      <div class="container">
+        <div class="footer-contact-grid">
+          <div class="footer-contact-info">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Get in touch for a free consultation. We'll discuss your needs and provide a no-obligation quote.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <strong>Phone</strong>
+                  <a href="tel:0433309677">0433 309 677</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:hello@cosmoswebtech.com.au">hello@cosmoswebtech.com.au</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <strong>Location</strong>
+                  <span>Bella Vista, NSW 2153</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-contact-form">
+            <form id="footer-form" class="contact-form-card">
+              <div class="form-row">
+                <input type="text" name="name" placeholder="Your Name *" required>
+                <input type="email" name="email" placeholder="Email *" required>
+              </div>
+              <div class="form-row">
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <select name="service">
+                  <option value="">Service Interested In...</option>
+                  <option value="web-design">Web Design</option>
+                  <option value="wordpress">WordPress Development</option>
+                  <option value="ecommerce">E-commerce Store</option>
+                  <option value="seo">SEO Services</option>
+                  <option value="google-ads">Google Ads</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <textarea name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+              <!-- Cloudflare Turnstile Widget -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzsB5pP7TqT9oRx" data-theme="light"></div>
+              <button type="submit" class="btn btn-primary btn-large">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" style="display:none;">Sending...</span>
+              </button>
+            </form>
+            <div id="footer-form-success" class="form-success-inline" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h4>Message Sent!</h4>
+              <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Exit Intent Popup (only shown on blog pages) -->
+    {isBlogPage && (
+    <div id="blog-exit-popup" class="exit-popup" style="display: none;">
+      <div class="popup-overlay"></div>
+      <div class="popup-content">
+        <button class="popup-close" aria-label="Close">&times;</button>
+        <div class="popup-icon" style="background: var(--success);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h3>Get More Tips Like This!</h3>
+        <p>Join our newsletter for monthly web design and digital marketing insights.</p>
+        <form id="blog-popup-form" class="popup-form">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <!-- Cloudflare Turnstile Widget -->
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzsB5pP7TqT9oRx" data-theme="light"></div>
+          <button type="submit" class="btn btn-primary btn-large">Subscribe Free</button>
+        </form>
+        <div id="blog-popup-success" style="display:none; text-align:center; padding:1rem 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" style="width:48px;height:48px;margin:0 auto 1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p style="color:var(--grey-dark);margin:0;">You're subscribed! Check your inbox.</p>
+        </div>
+        <button class="popup-dismiss">No thanks</button>
+      </div>
+    </div>
+    )}
+
+    <!-- Mautic Tracking -->
+    <script define:vars={{ MAUTIC_URL }}>
+      (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+          w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+          m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+      })(window,document,'script',MAUTIC_URL + '/mtc.js','mt');
+      mt('send', 'pageview');
+    </script>
+
+    <!-- Gist Live Chat -->
+    <script is:inline>
+      (function(d,h,w){var gist=w.gist=w.gist||[];gist.methods=['trackPageView','identify','track','setAppId'];gist.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);gist.push(e);return gist;}};for(var i=0;i<gist.methods.length;i++){var c=gist.methods[i];gist[c]=gist.factory(c)}s=d.createElement('script'),s.src="https://widget.getgist.com",s.async=!0,e=d.getElementsByTagName(h)[0],e.appendChild(s),s.addEventListener('load',function(e){},!1),gist.setAppId("4ag9jnty"),gist.trackPageView()})(document,'head',window);
+    </script>
+
+    <!-- Header scroll effect & Mobile menu -->
+    <script define:vars={{ MAUTIC_CONTACT_FORM_URL, isBlogPage, isContactPage, isResourcePage }}>
+      const header = document.querySelector('.header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.querySelector(anchor.getAttribute('href') || '');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // Form submission handler with Turnstile and proxy
+      async function submitContactForm(form, successEl, source, formId = '39') {
+        const formData = new FormData(form);
+        const btnText = form.querySelector('.btn-text');
+        const btnLoading = form.querySelector('.btn-loading');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        if (btnText) btnText.style.display = 'none';
+        if (btnLoading) btnLoading.style.display = 'inline';
+        if (submitBtn) submitBtn.disabled = true;
+
+        // Get Turnstile token
+        const turnstileWidget = form.querySelector('.cf-turnstile');
+        const turnstileToken = turnstileWidget ? window.turnstile.getResponse(turnstileWidget) : null;
+
+        if (!turnstileToken) {
+          alert('Please complete the spam verification.');
+          if (btnText) btnText.style.display = 'inline';
+          if (btnLoading) btnLoading.style.display = 'none';
+          if (submitBtn) submitBtn.disabled = false;
+          return;
+        }
+
+        const data = {
+          turnstileToken,
+          formData: {
+            formId: formId,
+            'mauticform[name]': formData.get('name') || '',
+            'mauticform[email]': formData.get('email'),
+            'mauticform[phone]': formData.get('phone') || '',
+            'mauticform[service]': formData.get('service') || '',
+            'mauticform[message]': formData.get('message') || '',
+            'mauticform[lead_source]': source,
+          }
+        };
+
+        try {
+          const response = await fetch('/api/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            form.style.display = 'none';
+            if (successEl) successEl.style.display = 'block';
+          } else {
+            alert(result.error || 'There was an error. Please try again or contact us directly.');
+            if (btnText) btnText.style.display = 'inline';
+            if (btnLoading) btnLoading.style.display = 'none';
+            if (submitBtn) submitBtn.disabled = false;
+            if (turnstileWidget) window.turnstile.reset(turnstileWidget);
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('There was an error. Please try again or contact us directly.');
+          if (btnText) btnText.style.display = 'inline';
+          if (btnLoading) btnLoading.style.display = 'none';
+          if (submitBtn) submitBtn.disabled = false;
+          if (turnstileWidget) window.turnstile.reset(turnstileWidget);
+        }
+      }
+
+      // Footer form submission
+      const footerForm = document.getElementById('footer-form');
+      const footerSuccess = document.getElementById('footer-form-success');
+      if (footerForm) {
+        footerForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitContactForm(footerForm, footerSuccess, 'Footer Contact Form');
+        });
+      }
+
+      // Exit Intent Popup Logic (ONLY on blog pages)
+      if (isBlogPage) {
+        const blogExitPopup = document.getElementById('blog-exit-popup');
+        const popupShown = sessionStorage.getItem('exitPopupShown');
+        const popupDismissed = localStorage.getItem('exitPopupDismissed');
+
+        if (!popupShown && !popupDismissed && blogExitPopup) {
+          document.addEventListener('mouseout', (e) => {
+            if (e.clientY < 10 && !sessionStorage.getItem('exitPopupShown')) {
+              blogExitPopup.style.display = 'flex';
+              sessionStorage.setItem('exitPopupShown', 'true');
+            }
+          });
+        }
+
+        // Popup close handlers
+        if (blogExitPopup) {
+          const closeBtn = blogExitPopup.querySelector('.popup-close');
+          const dismissBtn = blogExitPopup.querySelector('.popup-dismiss');
+          const overlay = blogExitPopup.querySelector('.popup-overlay');
+
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => blogExitPopup.style.display = 'none');
+          }
+          if (dismissBtn) {
+            dismissBtn.addEventListener('click', () => {
+              blogExitPopup.style.display = 'none';
+              localStorage.setItem('exitPopupDismissed', 'true');
+            });
+          }
+          if (overlay) {
+            overlay.addEventListener('click', () => blogExitPopup.style.display = 'none');
+          }
+        }
+      }
+
+      // Blog popup form submission with Turnstile
+      const blogPopupForm = document.getElementById('blog-popup-form');
+      const blogPopupSuccess = document.getElementById('blog-popup-success');
+      if (blogPopupForm) {
+        blogPopupForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = blogPopupForm.querySelector('input[name="email"]').value;
+          const submitBtn = blogPopupForm.querySelector('button[type="submit"]');
+
+          if (submitBtn) submitBtn.disabled = true;
+
+          // Get Turnstile token
+          const turnstileWidget = blogPopupForm.querySelector('.cf-turnstile');
+          const turnstileToken = turnstileWidget ? window.turnstile.getResponse(turnstileWidget) : null;
+
+          if (!turnstileToken) {
+            alert('Please complete the spam verification.');
+            if (submitBtn) submitBtn.disabled = false;
+            return;
+          }
+
+          const data = {
+            turnstileToken,
+            formData: {
+              formId: '39',
+              'mauticform[email]': email,
+              'mauticform[lead_source]': 'Blog Newsletter Popup',
+            }
+          };
+
+          try {
+            const response = await fetch('/api/submit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              blogPopupForm.style.display = 'none';
+              if (blogPopupSuccess) blogPopupSuccess.style.display = 'block';
+            } else {
+              alert(result.error || 'There was an error. Please try again.');
+              if (submitBtn) submitBtn.disabled = false;
+              if (turnstileWidget) window.turnstile.reset(turnstileWidget);
+            }
+          } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error. Please try again.');
+            if (submitBtn) submitBtn.disabled = false;
+            if (turnstileWidget) window.turnstile.reset(turnstileWidget);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

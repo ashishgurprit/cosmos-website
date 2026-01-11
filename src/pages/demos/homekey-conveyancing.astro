@@ -1,0 +1,980 @@
+---
+// HomeKey Conveyancing - Laravel + Alpine.js Demo
+// A professional conveyancing website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeKey Conveyancing | Property Settlement Experts in Rouse Hill</title>
+    <meta name="description" content="Trusted conveyancing services in Rouse Hill. Fixed fee property settlements, buying, selling, and transfers. Fast, professional, and stress-free.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Laravel + Alpine.js Stack Demo */
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.375rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 118, 110, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 30px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-feature svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .hero-feature span {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .quote-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .quote-form input,
+        .quote-form select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .quote-form input:focus,
+        .quote-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .quote-form .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 60px 0;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(15, 118, 110, 0.1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Process */
+        .process {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 30px;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Why Us */
+        .why-us {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .why-content p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .why-list-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .why-list h4 {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .why-list p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .why-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .why-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-item span:first-child {
+            font-weight: 500;
+        }
+
+        .pricing-item span:last-child {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        .cta .btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            color: #9ca3af;
+            line-height: 1.8;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .stats-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🏠 This is a demo template built with Laravel + Alpine.js | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🔑</div>
+                    <span class="logo-text">Home<span>Key</span></span>
+                </div>
+
+                <nav class="nav">
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" class="btn btn-primary">Get a Quote</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">
+                        ✓ Licensed Conveyancers | Fixed Fees
+                    </div>
+                    <h1>Property Settlement Made <span>Simple</span></h1>
+                    <p>Take the stress out of buying or selling property. Our experienced conveyancers handle everything, ensuring a smooth and hassle-free settlement.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Get Free Quote</a>
+                        <a href="tel:0288501234" class="btn btn-outline">Call (02) 8850 1234</a>
+                    </div>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>Fixed Fee Pricing</span>
+                        </div>
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>No Hidden Costs</span>
+                        </div>
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>Fast Turnaround</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>Get Your Free Quote</h3>
+                    <form class="quote-form">
+                        <label>Transaction Type</label>
+                        <select>
+                            <option>Buying a Property</option>
+                            <option>Selling a Property</option>
+                            <option>Buying & Selling</option>
+                            <option>Transfer of Property</option>
+                        </select>
+
+                        <label>Property Value (approx)</label>
+                        <input type="text" placeholder="e.g., $850,000">
+
+                        <label>Your Email</label>
+                        <input type="email" placeholder="you@example.com">
+
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="0400 000 000">
+
+                        <button type="submit" class="btn btn-primary">Get Instant Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>2,500+</h3>
+                    <p>Properties Settled</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$1.2B</h3>
+                    <p>Property Value Handled</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Conveyancing Services</h2>
+                <p>Comprehensive property settlement services for all types of transactions. Fixed fees with no surprises.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Buying a Property</h3>
+                    <p>Full service conveyancing for your property purchase, including contract review, title searches, and settlement.</p>
+                    <div class="service-price">From $990 + disbursements</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>Selling a Property</h3>
+                    <p>Complete vendor conveyancing including contract preparation, discharge of mortgage, and settlement coordination.</p>
+                    <div class="service-price">From $890 + disbursements</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Simultaneous Settlement</h3>
+                    <p>Buying and selling at the same time? We coordinate both transactions for a seamless experience.</p>
+                    <div class="service-price">From $1,690 + disbursements</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Property Transfer</h3>
+                    <p>Transferring property between family members or into a trust? We handle all documentation.</p>
+                    <div class="service-price">From $750 + disbursements</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Contract Review</h3>
+                    <p>Independent review of your contract of sale before you sign. Understand your rights and obligations.</p>
+                    <div class="service-price">From $350</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Strata Reports</h3>
+                    <p>Comprehensive strata inspection reports for units, townhouses, and apartments.</p>
+                    <div class="service-price">From $295</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Our streamlined process makes property settlement stress-free from start to finish.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Get a Quote</h3>
+                    <p>Tell us about your transaction and receive a fixed fee quote within minutes.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Contract Review</h3>
+                    <p>We review all contracts, conduct searches, and explain everything in plain English.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Manage Process</h3>
+                    <p>We handle all communications with banks, agents, and the other party's solicitors.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Settlement</h3>
+                    <p>We attend settlement (electronically), transfer funds, and hand you the keys!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="pricing">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content">
+                    <h2>Why Choose HomeKey?</h2>
+                    <p>With over 15 years of experience settling properties across Sydney, we know what it takes to get the job done right.</p>
+
+                    <ul class="why-list">
+                        <li>
+                            <div class="why-list-icon">✓</div>
+                            <div>
+                                <h4>Fixed Fee Pricing</h4>
+                                <p>Know exactly what you'll pay upfront. No hourly rates or surprise bills.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="why-list-icon">✓</div>
+                            <div>
+                                <h4>Fast Turnaround</h4>
+                                <p>Electronic settlements mean faster, more efficient transactions.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="why-list-icon">✓</div>
+                            <div>
+                                <h4>Local Expertise</h4>
+                                <p>Deep knowledge of the Hills District and Western Sydney property market.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="why-list-icon">✓</div>
+                            <div>
+                                <h4>Clear Communication</h4>
+                                <p>Regular updates and explanations in plain English, not legal jargon.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <h3>Transparent Pricing</h3>
+                    <div class="pricing-item">
+                        <span>Purchasing (Residential)</span>
+                        <span>$990</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Selling (Residential)</span>
+                        <span>$890</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Buy + Sell Package</span>
+                        <span>$1,690</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Property Transfer</span>
+                        <span>$750</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Contract Review Only</span>
+                        <span>$350</span>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-light);">* Plus government disbursements (searches, registration fees). Full breakdown provided in quote.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Get your free, no-obligation quote today. Our team is ready to help make your property transaction smooth and stress-free.</p>
+            <a href="#" class="btn">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>HomeKey Conveyancing</h4>
+                    <p>Licensed conveyancers serving Rouse Hill, the Hills District, and greater Western Sydney. We make property settlement simple, affordable, and stress-free.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Buying</a></li>
+                        <li><a href="#">Selling</a></li>
+                        <li><a href="#">Transfers</a></li>
+                        <li><a href="#">Contract Review</a></li>
+                        <li><a href="#">Strata Reports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0288501234">(02) 8850 1234</a></li>
+                        <li><a href="#">Suite 3, 10-12 Market Lane</a></li>
+                        <li><a href="#">Rouse Hill NSW 2155</a></li>
+                        <li><a href="#">info@homekeyconvey.com.au</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a href="#">Mon-Fri: 9am-5pm</a></li>
+                        <li><a href="#">Saturday: By appointment</a></li>
+                        <li><a href="#">Sunday: Closed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HomeKey Conveyancing. Licensed Conveyancer. Built with Laravel + Alpine.js.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

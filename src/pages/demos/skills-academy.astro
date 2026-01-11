@@ -1,0 +1,1116 @@
+---
+// Skills Academy - WordPress + LearnDash Demo
+// A registered training organization website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Academy | Registered Training Organisation in Blacktown</title>
+    <meta name="description" content="Nationally recognised qualifications in Business, Aged Care, Childcare, and Construction. Government funded courses available. RTO 12345.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* WordPress + LearnDash Stack Demo */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --orange: #f97316;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--primary-dark), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-dark);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 25px;
+        }
+
+        .rto-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 16px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .hero-stat p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .funding-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            list-style: none;
+        }
+
+        .course-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .course-list li:last-child {
+            border-bottom: none;
+        }
+
+        .course-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .course-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .course-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Courses */
+        .courses {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .course-card:hover {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .course-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .course-content {
+            padding: 28px;
+        }
+
+        .course-category {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .course-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .course-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-duration {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .course-price {
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .course-price span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Why Us */
+        .why-us {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+        }
+
+        .why-us .section-header h2 {
+            color: white;
+        }
+
+        .why-us .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Funding */
+        .funding {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .funding-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .funding-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .funding-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .eligibility-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .eligibility-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+        }
+
+        .eligibility-check {
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .funding-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .funding-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .funding-program {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .funding-program-icon {
+            font-size: 2rem;
+        }
+
+        .funding-program h4 {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .funding-program span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: var(--text);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-rto {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .footer-rto p {
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .funding-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav, .top-bar {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .courses-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎓 This is a demo template built with WordPress + LearnDash | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div>📍 Level 2, 15 Flushcombe Road, Blacktown NSW 2148</div>
+                <div class="top-bar-right">
+                    <a href="tel:0296221234">📞 (02) 9622 5678</a>
+                    <span class="rto-badge">RTO 12345</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎓</div>
+                    <span class="logo-text">Skills<span>Academy</span></span>
+                </div>
+
+                <nav class="nav">
+                    <a href="#courses">Courses</a>
+                    <a href="#funding">Funding</a>
+                    <a href="#">Student Portal</a>
+                    <a href="#">Contact</a>
+                    <a href="#" class="btn btn-primary">Enrol Now</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">
+                        ✓ Government Funded Courses Available
+                    </div>
+                    <h1>Launch Your Career with <span>Nationally Recognised</span> Qualifications</h1>
+                    <p>Skills Academy is a registered training organisation offering flexible, industry-relevant courses in Business, Aged Care, Childcare, and Construction. Study online, in-class, or on-the-job.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Browse Courses</a>
+                        <a href="#" class="btn btn-outline">Check Eligibility</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <h3>5,000+</h3>
+                            <p>Students Trained</p>
+                        </div>
+                        <div class="hero-stat">
+                            <h3>25+</h3>
+                            <p>Courses Available</p>
+                        </div>
+                        <div class="hero-stat">
+                            <h3>95%</h3>
+                            <p>Completion Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="funding-badge">💰 $0 Upfront with Government Funding</div>
+                    <h3>Popular Funded Courses</h3>
+                    <ul class="course-list">
+                        <li>
+                            <div class="course-icon">👴</div>
+                            <div class="course-info">
+                                <h4>CHC33021 - Certificate III in Individual Support</h4>
+                                <span>Aged Care | 6-12 months</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-icon">👶</div>
+                            <div class="course-info">
+                                <h4>CHC30121 - Certificate III in Early Childhood</h4>
+                                <span>Childcare | 12 months</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-icon">💼</div>
+                            <div class="course-info">
+                                <h4>BSB30120 - Certificate III in Business</h4>
+                                <span>Business | 6-9 months</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Courses</h2>
+                <p>Industry-recognised qualifications designed to get you job-ready. Study at your own pace with flexible delivery options.</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <span class="course-tag">Funded</span>
+                        👴
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Aged Care</div>
+                        <h3>Certificate III in Individual Support</h3>
+                        <p>Launch your career in aged care. Learn to provide person-centred support to older Australians.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 6-12 months</div>
+                            <div class="course-price">$0* <span>funded</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+                        <span class="course-tag">Funded</span>
+                        👶
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Childcare</div>
+                        <h3>Certificate III in Early Childhood Education</h3>
+                        <p>Work with children in childcare centres, preschools, and family day care settings.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 12 months</div>
+                            <div class="course-price">$0* <span>funded</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+                        <span class="course-tag">Funded</span>
+                        💼
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Business</div>
+                        <h3>Certificate III in Business</h3>
+                        <p>Develop essential business skills in administration, customer service, and office operations.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 6-9 months</div>
+                            <div class="course-price">$0* <span>funded</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                        👷
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Construction</div>
+                        <h3>Certificate IV in Building & Construction</h3>
+                        <p>Become a licensed builder. Learn project management, compliance, and construction methods.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 18 months</div>
+                            <div class="course-price">$4,500</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #ec4899, #db2777);">
+                        📊
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Business</div>
+                        <h3>Diploma of Leadership & Management</h3>
+                        <p>Advance your career with leadership skills. Manage teams, projects, and organisational operations.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 12 months</div>
+                            <div class="course-price">$3,200</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                        <span class="course-tag">New</span>
+                        🏥
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Healthcare</div>
+                        <h3>Certificate IV in Disability Support</h3>
+                        <p>Advanced skills in disability support. Work in NDIS, group homes, and community settings.</p>
+                        <div class="course-meta">
+                            <div class="course-duration">⏱️ 12 months</div>
+                            <div class="course-price">$2,800</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Study with Skills Academy?</h2>
+                <p>We're committed to your success with quality training, industry connections, and ongoing support.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🎯</div>
+                    <h3>Job-Ready Skills</h3>
+                    <p>Practical, industry-relevant training that prepares you for real workplace demands.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">📱</div>
+                    <h3>Flexible Learning</h3>
+                    <p>Study online, in-class, or through workplace training. Learn at your own pace.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Industry Connections</h3>
+                    <p>Strong partnerships with employers for work placements and job opportunities.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Funding Available</h3>
+                    <p>Access government funding programs. Many courses available at no cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="funding" id="funding">
+        <div class="container">
+            <div class="funding-content">
+                <div class="funding-text">
+                    <h2>Government Funded Training</h2>
+                    <p>Skills Academy is approved to deliver government-funded training under the Smart and Skilled program. Eligible students can access subsidised or fee-free training.</p>
+                    <p>Check if you're eligible for funded training:</p>
+
+                    <ul class="eligibility-list">
+                        <li>
+                            <div class="eligibility-check">✓</div>
+                            <span>Australian citizen, permanent resident, or eligible visa holder</span>
+                        </li>
+                        <li>
+                            <div class="eligibility-check">✓</div>
+                            <span>Aged 15 years or over and no longer at school</span>
+                        </li>
+                        <li>
+                            <div class="eligibility-check">✓</div>
+                            <span>Living or working in NSW</span>
+                        </li>
+                        <li>
+                            <div class="eligibility-check">✓</div>
+                            <span>Meet course-specific entry requirements</span>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary">Check Your Eligibility</a>
+                </div>
+
+                <div class="funding-card">
+                    <h3>Available Funding Programs</h3>
+                    <div class="funding-program">
+                        <div class="funding-program-icon">🏛️</div>
+                        <div>
+                            <h4>Smart and Skilled</h4>
+                            <span>NSW Government subsidised training</span>
+                        </div>
+                    </div>
+                    <div class="funding-program">
+                        <div class="funding-program-icon">💼</div>
+                        <div>
+                            <h4>JobTrainer</h4>
+                            <span>Free or low-fee courses for job seekers</span>
+                        </div>
+                    </div>
+                    <div class="funding-program">
+                        <div class="funding-program-icon">📋</div>
+                        <div>
+                            <h4>Fee-Free TAFE</h4>
+                            <span>Selected priority courses at no cost</span>
+                        </div>
+                    </div>
+                    <div class="funding-program">
+                        <div class="funding-program-icon">🎖️</div>
+                        <div>
+                            <h4>Apprenticeships</h4>
+                            <span>Earn while you learn programs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Enrol now and take the first step towards a rewarding career. Our friendly team is here to help you choose the right course.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Enrol Online</a>
+                <a href="tel:0296225678" class="btn btn-outline" style="border-color: white; color: white;">Call (02) 9622 5678</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Skills Academy</h4>
+                    <p>Skills Academy is a registered training organisation (RTO 12345) delivering nationally recognised qualifications in Business, Community Services, and Construction.</p>
+                    <div class="footer-rto">
+                        <p><strong>RTO Code:</strong> 12345<br>
+                        <strong>CRICOS:</strong> 01234A<br>
+                        Registered with ASQA</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#">Aged Care</a></li>
+                        <li><a href="#">Childcare</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Construction</a></li>
+                        <li><a href="#">All Courses</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Students</h4>
+                    <ul>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Funding Options</a></li>
+                        <li><a href="#">USI Number</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0296225678">(02) 9622 5678</a></li>
+                        <li><a href="#">Level 2, 15 Flushcombe Road</a></li>
+                        <li><a href="#">Blacktown NSW 2148</a></li>
+                        <li><a href="#">info@skillsacademy.edu.au</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Skills Academy. RTO 12345. Built with WordPress + LearnDash.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

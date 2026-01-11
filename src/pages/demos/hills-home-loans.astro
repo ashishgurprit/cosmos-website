@@ -1,0 +1,567 @@
+---
+// Demo: Hills Home Loans - Mortgage Broker
+// Built with: Django + React (simulated)
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hills Home Loans | Mortgage Broker | Castle Hill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #047857;
+      --primary-dark: #065f46;
+      --primary-light: #10b981;
+      --navy: #1e3a5f;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --bg: #f0fdf4;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); line-height: 1.6; }
+    h1, h2, h3, h4 { font-weight: 700; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+    .demo-banner {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .demo-banner a { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      padding: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 24px; height: 24px; fill: var(--primary); }
+    .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+    .logo-text span { color: var(--primary); }
+    .nav { display: flex; gap: 2rem; list-style: none; }
+    .nav a { color: var(--text); font-weight: 500; transition: color 0.2s; }
+    .nav a:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bg) 0%, #dcfce7 100%);
+      padding: 5rem 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; }
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #bbf7d0;
+    }
+    .trust-item {
+      text-align: center;
+    }
+    .trust-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .trust-label { font-size: 0.85rem; color: var(--text-light); }
+    .hero-calc {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+    .hero-calc h3 { margin-bottom: 1.5rem; color: var(--navy); }
+    .calc-field { margin-bottom: 1rem; }
+    .calc-field label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .calc-field input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .calc-result {
+      background: var(--bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .calc-result .label { font-size: 0.9rem; color: var(--text-light); }
+    .calc-result .amount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .calc-result .period { font-size: 0.85rem; color: var(--text-light); }
+
+    /* Services */
+    .services {
+      padding: 5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.25rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .section-header p { color: var(--text-light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(4,120,87,0.1);
+    }
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .service-icon svg { width: 30px; height: 30px; stroke: var(--primary); }
+    .service-card h3 { color: var(--navy); margin-bottom: 0.75rem; }
+    .service-card p { color: var(--text-light); font-size: 0.95rem; }
+
+    /* Process */
+    .process {
+      padding: 5rem 0;
+      background: var(--navy);
+      color: var(--white);
+    }
+    .process .section-header h2 { color: var(--white); }
+    .process .section-header p { color: rgba(255,255,255,0.7); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .process-step {
+      text-align: center;
+    }
+    .step-num {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+    .process-step h4 { margin-bottom: 0.5rem; }
+    .process-step p { font-size: 0.9rem; opacity: 0.8; }
+
+    /* Lenders */
+    .lenders {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+    .lenders-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .lender-logo {
+      width: 120px;
+      height: 60px;
+      background: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .cta-box {
+      background: var(--primary);
+      color: var(--white);
+      padding: 4rem;
+      border-radius: 24px;
+    }
+    .cta-box h2 { margin-bottom: 1rem; font-size: 2rem; }
+    .cta-box p { opacity: 0.9; margin-bottom: 2rem; }
+    .cta-buttons { display: flex; justify-content: center; gap: 1rem; }
+    .btn-white { background: var(--white); color: var(--primary); }
+    .btn-white:hover { background: #f0fdf4; }
+
+    /* Footer */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer h4 { margin-bottom: 1.5rem; }
+    .footer p { opacity: 0.8; font-size: 0.95rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { opacity: 0.8; transition: opacity 0.2s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-grid, .services-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .hero-trust { flex-wrap: wrap; justify-content: center; }
+      .hero-cta, .cta-buttons { flex-direction: column; align-items: center; }
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Demo by <a href="/">Cosmos Web Tech</a>. <a href="/contact">Get your mortgage broker website →</a>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/demos/hills-home-loans" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <span class="logo-text">Hills <span>Home Loans</span></span>
+      </a>
+      <ul class="nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#lenders">Lenders</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Free Consultation</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Find Your <span>Perfect Home Loan</span></h1>
+          <p>As your local Hills District mortgage broker, we compare 40+ lenders to find the best rate for you. Our service is free - the banks pay us.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get Pre-Approved</a>
+            <a href="tel:0298769000" class="btn btn-outline">Call (02) 9876 9000</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <div class="trust-num">$500M+</div>
+              <div class="trust-label">Loans Settled</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-num">1,200+</div>
+              <div class="trust-label">Happy Clients</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-num">40+</div>
+              <div class="trust-label">Lender Panel</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-calc">
+          <h3>Quick Repayment Calculator</h3>
+          <div class="calc-field">
+            <label>Loan Amount</label>
+            <input type="text" placeholder="$500,000" value="$500,000">
+          </div>
+          <div class="calc-field">
+            <label>Interest Rate (%)</label>
+            <input type="text" placeholder="6.0" value="6.0">
+          </div>
+          <div class="calc-field">
+            <label>Loan Term (years)</label>
+            <input type="text" placeholder="30" value="30">
+          </div>
+          <div class="calc-result">
+            <div class="label">Estimated Monthly Repayment</div>
+            <div class="amount">$2,998</div>
+            <div class="period">Principal & Interest</div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Get Exact Quote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>How We Help You</h2>
+        <p>Expert guidance for every step of your home loan journey</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>First Home Buyers</h3>
+          <p>Navigate grants, schemes, and find the right loan structure for your first property purchase.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </div>
+          <h3>Refinancing</h3>
+          <p>Lower your rate or access equity. We'll find a better deal and handle the switch.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3>Investment Loans</h3>
+          <p>Structure your investment portfolio with the right loan products and strategies.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3>Commercial Loans</h3>
+          <p>Business property finance, equipment loans, and commercial lending solutions.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+          </div>
+          <h3>Pre-Approval</h3>
+          <p>Know your borrowing power before you start looking. Fast pre-approval service.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3>Debt Consolidation</h3>
+          <p>Combine multiple debts into your home loan for lower overall repayments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple 4-Step Process</h2>
+        <p>We make getting a home loan easy</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h4>Free Chat</h4>
+          <p>Tell us about your goals and we'll assess your borrowing capacity</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h4>Compare Options</h4>
+          <p>We search 40+ lenders to find the best rates and products for you</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h4>Application</h4>
+          <p>We handle all the paperwork and liaise with the lender for you</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <h4>Settlement</h4>
+          <p>We coordinate settlement and ensure everything runs smoothly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lenders" id="lenders">
+    <div class="container">
+      <div class="section-header">
+        <h2>40+ Lender Panel</h2>
+        <p>We compare major banks, credit unions, and specialist lenders</p>
+      </div>
+      <div class="lenders-logos">
+        <div class="lender-logo">CBA</div>
+        <div class="lender-logo">Westpac</div>
+        <div class="lender-logo">ANZ</div>
+        <div class="lender-logo">NAB</div>
+        <div class="lender-logo">Macquarie</div>
+        <div class="lender-logo">ING</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Find Your Best Rate?</h2>
+        <p>Book a free consultation with our Hills District mortgage experts today.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-white">Book Consultation</a>
+          <a href="tel:0298769000" class="btn btn-outline" style="border-color: white; color: white;">Call (02) 9876 9000</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Hills Home Loans</h4>
+          <p>Your local mortgage broker in the Hills District. We're here to help you find the right loan.</p>
+          <p style="margin-top: 1rem;">Suite 5, 100 Old Northern Rd<br>Castle Hill NSW 2154</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">First Home Buyers</a></li>
+            <li><a href="#">Refinancing</a></li>
+            <li><a href="#">Investment Loans</a></li>
+            <li><a href="#">Pre-Approval</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#">Calculators</a></li>
+            <li><a href="#">First Home Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>(02) 9876 9000</li>
+            <li>info@hillshomeloans.com.au</li>
+            <li>Credit Rep: 123456</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Hills Home Loans. Credit Representative of XYZ Finance Pty Ltd. ACL 123456. | Demo by <a href="/" style="color: var(--primary-light);">Cosmos Web Tech</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

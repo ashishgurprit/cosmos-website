@@ -1,0 +1,1003 @@
+---
+// Bella Hair Studio - Ruby on Rails + SCSS Demo
+// An elegant hair salon website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Hair Studio | Luxury Hair Salon Bella Vista</title>
+    <meta name="description" content="Experience luxury hair care at Bella Hair Studio in Bella Vista. Expert stylists, premium products, and a relaxing atmosphere. Book your appointment today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Ruby on Rails + SCSS Stack Demo */
+        :root {
+            --primary: #b8860b;
+            --primary-light: #daa520;
+            --secondary: #2d2d2d;
+            --accent: #c9a86c;
+            --rose: #e8d5d5;
+            --cream: #faf8f5;
+            --text: #2d2d2d;
+            --text-light: #6b6b6b;
+            --bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--secondary), #444);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .demo-banner a {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-gold {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: var(--primary-light);
+        }
+
+        /* Hero */
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream) 50%, var(--rose) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23b8860b" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="%23b8860b" opacity="0.2"/><circle cx="40" cy="70" r="1" fill="%23b8860b" opacity="0.25"/></svg>');
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-frame {
+            background: linear-gradient(135deg, var(--rose), var(--cream));
+            height: 500px;
+            border-radius: 200px 200px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12rem;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--primary);
+            border-radius: 220px 220px 0 0;
+            opacity: 0.5;
+        }
+
+        /* About */
+        .about {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            background: var(--rose);
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: -30px;
+            bottom: -30px;
+            border: 1px solid var(--primary);
+            z-index: -1;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .about h2 {
+            font-size: 2.75rem;
+            margin-bottom: 24px;
+            color: var(--secondary);
+        }
+
+        .about p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        /* Services */
+        .services {
+            padding: 120px 0;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .service-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .pricing-category {
+            padding: 40px;
+            background: var(--cream);
+        }
+
+        .pricing-category h3 {
+            font-size: 1.75rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item span:first-child {
+            font-weight: 500;
+        }
+
+        .price-item span:last-child {
+            color: var(--primary);
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        /* Team */
+        .team {
+            padding: 120px 0;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .team .section-header h2 {
+            color: white;
+        }
+
+        .team .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .team .section-tag {
+            color: var(--primary-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-image {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            background: var(--rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .team-image::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .team-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .team-card .role {
+            color: var(--primary-light);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .gallery-item:nth-child(1) { background: #e8d5d5; }
+        .gallery-item:nth-child(2) { background: #d5e8e8; }
+        .gallery-item:nth-child(3) { background: #e8e5d5; }
+        .gallery-item:nth-child(4) { background: #e5d5e8; }
+        .gallery-item:nth-child(5) { background: #d5e8d5; }
+        .gallery-item:nth-child(6) { background: #e8d5e5; }
+        .gallery-item:nth-child(7) { background: #d5d5e8; }
+        .gallery-item:nth-child(8) { background: #e8e8d5; }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: var(--rose);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .cta p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer h4 {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            color: var(--primary-light);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-frame {
+                height: 400px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                height: auto;
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        ✂️ This is a demo template built with Ruby on Rails + SCSS | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="nav">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#pricing">Pricing</a>
+                </nav>
+
+                <div class="logo">
+                    <h1>BELLA</h1>
+                    <span>Hair Studio</span>
+                </div>
+
+                <nav class="nav">
+                    <a href="#team">Team</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-tag">Welcome to Bella Vista's Premier Salon</div>
+                    <h1>Where <em>Beauty</em> Meets Artistry</h1>
+                    <p>Experience the art of hair care in our luxurious salon. Our expert stylists create stunning looks tailored to your unique style and personality.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-gold">Book Appointment</a>
+                        <a href="tel:0298341234" class="btn btn-outline">(02) 9834 1234</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-frame">💇‍♀️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">✨</div>
+                <div>
+                    <div class="section-tag">Our Story</div>
+                    <h2>Crafting Beauty Since 2010</h2>
+                    <p>Bella Hair Studio was founded with a simple vision: to create a sanctuary where every client feels beautiful, valued, and transformed. Located in the heart of Bella Vista, we've been serving the Hills District community for over a decade.</p>
+                    <p>Our team of passionate stylists stays at the forefront of the latest trends and techniques, ensuring you receive cutting-edge services with a personal touch. We use only premium, salon-exclusive products to protect and enhance your hair's natural beauty.</p>
+                    <a href="#" class="btn btn-primary">Meet Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">What We Offer</div>
+                <h2>Our Services</h2>
+                <p>From precision cuts to stunning colour transformations, we offer a full range of services to bring your vision to life.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Haircuts & Styling</h3>
+                    <p>Precision cuts tailored to your face shape, lifestyle, and personal style. Includes consultation and blow-dry.</p>
+                    <div class="service-price">From $75</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Colour Services</h3>
+                    <p>From subtle highlights to bold transformations, our colour experts create dimension and vibrancy.</p>
+                    <div class="service-price">From $120</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💫</div>
+                    <h3>Balayage & Ombre</h3>
+                    <p>Hand-painted highlights for a natural, sun-kissed look that grows out beautifully.</p>
+                    <div class="service-price">From $250</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💆‍♀️</div>
+                    <h3>Treatments</h3>
+                    <p>Keratin smoothing, deep conditioning, and scalp treatments to restore hair health.</p>
+                    <div class="service-price">From $80</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👰</div>
+                    <h3>Bridal & Events</h3>
+                    <p>Complete hair and makeup services for your special day. Trial sessions available.</p>
+                    <div class="service-price">From $300</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Hair Extensions</h3>
+                    <p>Premium quality extensions for added length and volume. Multiple methods available.</p>
+                    <div class="service-price">From $400</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Transparent Pricing</div>
+                <h2>Service Menu</h2>
+                <p>Quality services at competitive prices. All prices include GST and a thorough consultation.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-category">
+                    <h3>Cutting & Styling</h3>
+                    <div class="price-item">
+                        <span>Ladies Cut & Blow Dry</span>
+                        <span>$85 - $120</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Men's Cut</span>
+                        <span>$45</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Children's Cut (Under 12)</span>
+                        <span>$35</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Blow Dry / Style</span>
+                        <span>$55 - $75</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Updo / Formal Style</span>
+                        <span>$95 - $150</span>
+                    </div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Colour Services</h3>
+                    <div class="price-item">
+                        <span>Root Touch Up</span>
+                        <span>$95</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Full Head Colour</span>
+                        <span>$150 - $200</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Half Head Foils</span>
+                        <span>$180</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Full Head Foils</span>
+                        <span>$250</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Balayage</span>
+                        <span>$280 - $380</span>
+                    </div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Treatments</h3>
+                    <div class="price-item">
+                        <span>Olaplex Treatment</span>
+                        <span>$45</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Deep Conditioning</span>
+                        <span>$35</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Keratin Smoothing</span>
+                        <span>$350 - $500</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Scalp Treatment</span>
+                        <span>$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Bridal Packages</h3>
+                    <div class="price-item">
+                        <span>Bride Hair & Makeup</span>
+                        <span>$450</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Bridal Party (per person)</span>
+                        <span>$180</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Trial Session</span>
+                        <span>$150</span>
+                    </div>
+                    <div class="price-item">
+                        <span>On-Location Fee</span>
+                        <span>From $100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">The Artists</div>
+                <h2>Meet Our Stylists</h2>
+                <p>Our talented team brings years of experience and a passion for creating beautiful hair.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👩</div>
+                    <h3>Isabella Romano</h3>
+                    <div class="role">Founder & Creative Director</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👩</div>
+                    <h3>Sophie Chen</h3>
+                    <div class="role">Senior Colourist</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👩</div>
+                    <h3>Emma Williams</h3>
+                    <div class="role">Senior Stylist</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👩</div>
+                    <h3>Mia Johnson</h3>
+                    <div class="role">Stylist & Extensions Specialist</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Work</div>
+                <h2>Style Gallery</h2>
+                <p>Browse our portfolio of stunning transformations and get inspired for your next look.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">💇‍♀️</div>
+                <div class="gallery-item">🎨</div>
+                <div class="gallery-item">✨</div>
+                <div class="gallery-item">💫</div>
+                <div class="gallery-item">👰</div>
+                <div class="gallery-item">💎</div>
+                <div class="gallery-item">🌸</div>
+                <div class="gallery-item">💐</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready for Your Transformation?</h2>
+            <p>Book your appointment today and experience the Bella difference.</p>
+            <a href="#" class="btn btn-gold">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>BELLA</h3>
+                    <p>Your premier destination for luxury hair care in Bella Vista. We're dedicated to making you look and feel your absolute best.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Haircuts</a></li>
+                        <li><a href="#">Colouring</a></li>
+                        <li><a href="#">Balayage</a></li>
+                        <li><a href="#">Treatments</a></li>
+                        <li><a href="#">Bridal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0298341234">(02) 9834 1234</a></li>
+                        <li><a href="#">Shop 5, Bella Vista Walk</a></li>
+                        <li><a href="#">Bella Vista NSW 2153</a></li>
+                        <li><a href="#">hello@bellahair.com.au</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a href="#">Tue-Fri: 9am-7pm</a></li>
+                        <li><a href="#">Saturday: 9am-5pm</a></li>
+                        <li><a href="#">Sun-Mon: Closed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bella Hair Studio. Built with Ruby on Rails + SCSS.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

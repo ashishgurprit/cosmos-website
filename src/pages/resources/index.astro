@@ -1,0 +1,315 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const resources = [
+  {
+    slug: "website-cost-guide",
+    title: "Website Cost Guide 2025",
+    description: "Understand what goes into website pricing and estimate your budget. Covers everything from simple brochure sites to complex e-commerce stores.",
+    icon: "calculator",
+    color: "#3b82f6"
+  },
+  {
+    slug: "planning-checklist",
+    title: "Website Planning Checklist",
+    description: "15 essential questions to answer before starting your website project. Avoid costly mistakes and delays.",
+    icon: "checklist",
+    color: "#10b981"
+  },
+  {
+    slug: "seo-checklist",
+    title: "SEO Audit Checklist",
+    description: "50-point SEO checklist to identify issues hurting your Google rankings. Perfect for DIY website owners.",
+    icon: "search",
+    color: "#8b5cf6"
+  },
+  {
+    slug: "requirements-template",
+    title: "Website Requirements Template",
+    description: "Professional template to document your website requirements. Share with developers to get accurate quotes.",
+    icon: "document",
+    color: "#f59e0b"
+  }
+];
+---
+
+<Layout title="Free Resources | Guides & Templates | Cosmos Web Tech" description="Free website guides, checklists, and templates to help plan your web project. Download our Website Cost Guide, Planning Checklist, SEO Audit Checklist, and more.">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
+              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="25" cy="42" r="2" fill="#64748b"/>
+              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Cosmos Web Tech</span>
+            <span class="brand-tagline">Your Digital Universe</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" class="btn btn-primary btn-small">Get Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Free Resources</h1>
+      <p>Guides, checklists, and templates to help you plan your website project</p>
+    </div>
+  </section>
+
+  <section class="resources-section">
+    <div class="container">
+      <p class="intro-text">We've created these free resources to help Australian businesses make informed decisions about their web projects. No fluff, just practical information you can use today.</p>
+
+      <div class="resources-grid">
+        {resources.map(resource => (
+          <a href={`/resources/${resource.slug}`} class="resource-card">
+            <div class="resource-icon" style={`background: ${resource.color}15; color: ${resource.color};`}>
+              {resource.icon === 'calculator' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2"/>
+                  <line x1="8" y1="6" x2="16" y2="6"/>
+                  <line x1="8" y1="10" x2="10" y2="10"/>
+                  <line x1="14" y1="10" x2="16" y2="10"/>
+                  <line x1="8" y1="14" x2="10" y2="14"/>
+                  <line x1="14" y1="14" x2="16" y2="14"/>
+                  <line x1="8" y1="18" x2="10" y2="18"/>
+                  <line x1="14" y1="18" x2="16" y2="18"/>
+                </svg>
+              )}
+              {resource.icon === 'checklist' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              )}
+              {resource.icon === 'search' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              )}
+              {resource.icon === 'document' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              )}
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Free Download</span>
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <span class="resource-cta">Download Now →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="resources-cta">
+        <h2>Need Personalized Advice?</h2>
+        <p>Our free resources are a great starting point, but every business is unique. Book a free consultation to discuss your specific needs.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="10" r="3" fill="#ffffff"/><circle cx="10" cy="35" r="2.5" fill="#3b82f6"/><circle cx="40" cy="35" r="2.5" fill="#3b82f6"/><line x1="25" y1="13" x2="12" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="13" x2="38" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/></svg>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name" style="color: white;">Cosmos Web Tech</span>
+              <span class="brand-tagline">Your Digital Universe</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/web-design">Web Design</a></li>
+            <li><a href="/services/wordpress">WordPress</a></li>
+            <li><a href="/services/ecommerce">E-commerce</a></li>
+            <li><a href="/services/odoo">Odoo</a></li>
+            <li><a href="/services/seo">SEO Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/demos">Demos</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>Bella Vista, NSW 2153</li>
+            <li><a href="tel:0433309677">0433 309 677</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Cosmos Web Tech. ABN: 32 164 690 751. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    color: var(--white);
+  }
+  .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+  .page-hero p { color: var(--grey-300); font-size: 1.25rem; }
+
+  .resources-section { padding: 5rem 0; }
+
+  .intro-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--grey);
+    font-size: 1.1rem;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .resource-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--grey-200);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .resource-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+
+  .resource-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resource-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .resource-content {
+    flex: 1;
+  }
+
+  .resource-tag {
+    display: inline-block;
+    background: var(--success);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+  }
+
+  .resource-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--navy-dark);
+  }
+
+  .resource-content p {
+    color: var(--grey);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .resource-cta {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .resources-cta {
+    margin-top: 4rem;
+    padding: 4rem;
+    background: var(--grey-100);
+    border-radius: 24px;
+    text-align: center;
+  }
+
+  .resources-cta h2 { margin-bottom: 1rem; }
+  .resources-cta p {
+    color: var(--grey);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .resource-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .resources-cta { padding: 2rem; }
+  }
+</style>

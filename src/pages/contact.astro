@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us | Get a Free Quote | Cosmos Web Tech Sydney" description="Contact Cosmos Web Tech for web design, SEO, and digital marketing services in Sydney. Free consultation for Hills District & Western Sydney businesses.">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
+              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="25" cy="42" r="2" fill="#64748b"/>
+              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Cosmos Web Tech</span>
+            <span class="brand-tagline">Your Digital Universe</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" class="btn btn-primary btn-small active">Get Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>Ready to start your project? Let's talk about your business goals.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <h2>Request a Free Quote</h2>
+          <p>Fill out the form below and we'll get back to you within 24 hours with a detailed quote.</p>
+
+          <form class="contact-form" id="contactForm" action="https://mautic.cloudgeeks.com.au/form/submit?formId=3" method="post">
+            <input type="hidden" name="mauticform[formId]" value="3">
+            <input type="hidden" name="mauticform[return]" value="">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="mauticform[name]" required>
+              </div>
+              <div class="form-group">
+                <label for="business">Business Name</label>
+                <input type="text" id="business" name="mauticform[business]">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="mauticform[email]" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="mauticform[phone]">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">What service are you interested in?</label>
+              <select id="service" name="mauticform[service]">
+                <option value="">Select a service...</option>
+                <option value="web-design">Web Design & Development</option>
+                <option value="wordpress">WordPress Development</option>
+                <option value="ecommerce">E-commerce / Online Store</option>
+                <option value="seo">SEO Services</option>
+                <option value="google-ads">Google Ads Management</option>
+                <option value="hosting">Hosting & Maintenance</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Approximate Budget</label>
+              <select id="budget" name="mauticform[budget]">
+                <option value="">Select your budget range...</option>
+                <option value="under-2k">Under $2,000</option>
+                <option value="2k-5k">$2,000 - $5,000</option>
+                <option value="5k-10k">$5,000 - $10,000</option>
+                <option value="10k-plus">$10,000+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell us about your project *</label>
+              <textarea id="message" name="mauticform[message]" rows="5" required placeholder="What are you looking to achieve? Any specific requirements or timeline?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="mauticform[newsletter]" value="1">
+                <span>Subscribe to our newsletter for digital marketing tips</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>Contact Information</h3>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Address</strong>
+                <p>608/8 Elizabeth Macarthur Drive<br>Bella Vista, NSW 2153</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Phone</strong>
+                <p><a href="tel:0433309677">0433 309 677</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:hello@cosmoswebtech.com.au">hello@cosmoswebtech.com.au</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Business Hours</strong>
+                <p>Monday - Friday: 9am - 6pm<br>Saturday: By appointment</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Service Areas</h3>
+            <p>We work with clients throughout Sydney, with a focus on:</p>
+            <ul class="areas-list">
+              <li>Bella Vista</li>
+              <li>Castle Hill</li>
+              <li>Parramatta</li>
+              <li>Baulkham Hills</li>
+              <li>Kellyville</li>
+              <li>Blacktown</li>
+              <li>Hornsby</li>
+              <li>All of Sydney</li>
+            </ul>
+          </div>
+
+          <div class="info-card map-card">
+            <h3>Find Us</h3>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.8!2d150.9577!3d-33.7364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sBella%20Vista%20NSW%202153!5e0!3m2!1sen!2sau!4v1704067200000"
+                width="100%"
+                height="200"
+                style="border:0; border-radius: 12px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Cosmos Web Tech Office Location">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="info-card cta-card">
+            <h3>Prefer to Talk?</h3>
+            <p>Call us directly for a quick chat about your project.</p>
+            <a href="tel:0433309677" class="btn btn-primary">Call 0433 309 677</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="10" r="3" fill="#ffffff"/><circle cx="10" cy="35" r="2.5" fill="#3b82f6"/><circle cx="40" cy="35" r="2.5" fill="#3b82f6"/><line x1="25" y1="13" x2="12" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="13" x2="38" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/></svg>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name" style="color: white;">Cosmos Web Tech</span>
+              <span class="brand-tagline">Your Digital Universe</span>
+            </div>
+          </a>
+          <p class="footer-desc">Sydney's trusted web design and digital marketing agency.</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/company/cosmoswebtech" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://facebook.com/cosmoswebtech" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/web-design">Web Design</a></li>
+            <li><a href="/services/wordpress">WordPress</a></li>
+            <li><a href="/services/seo">SEO Services</a></li>
+            <li><a href="/services/sem">Google Ads</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/demos">Demos</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+          <h4 style="margin-top: 1.5rem;">Contact</h4>
+          <ul class="footer-links">
+            <li>Bella Vista, NSW 2153</li>
+            <li><a href="tel:0433309677">0433 309 677</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ganda Tech Services. All rights reserved. ABN: 32 164 690 751</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    color: var(--white);
+  }
+  .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+  .page-hero p { color: var(--grey-300); font-size: 1.25rem; }
+
+  .contact-section { padding: 5rem 0; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 4rem;
+  }
+
+  .contact-form-wrapper h2 { margin-bottom: 0.5rem; }
+  .contact-form-wrapper > p { color: var(--grey); margin-bottom: 2rem; }
+
+  .contact-form { margin-top: 2rem; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--grey-dark);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--grey-200);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition-fast);
+    background: var(--white);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .checkbox-label input {
+    width: auto;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: var(--grey-100);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .info-card h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent);
+  }
+
+  .info-item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--navy-dark);
+  }
+
+  .info-item p {
+    margin: 0;
+    color: var(--grey);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .info-item a {
+    color: var(--accent);
+  }
+
+  .areas-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .areas-list li {
+    color: var(--grey-dark);
+    font-size: 0.95rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .areas-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .map-card {
+    padding: 1.5rem;
+  }
+
+  .map-card h3 {
+    margin-bottom: 1rem;
+  }
+
+  .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .map-container iframe {
+    display: block;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    color: var(--white);
+  }
+
+  .cta-card h3 {
+    color: var(--white);
+  }
+
+  .cta-card p {
+    color: var(--grey-300);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-desc {
+    color: var(--grey-300);
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.2s ease;
+  }
+
+  .social-links a:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .social-links svg {
+    width: 18px;
+    height: 18px;
+  }
+</style>
+
+<script>
+  // Pre-fill service from URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const service = urlParams.get('service');
+  if (service) {
+    const serviceSelect = document.getElementById('service') as HTMLSelectElement;
+    if (serviceSelect) {
+      serviceSelect.value = service;
+    }
+  }
+
+  const packageParam = urlParams.get('package');
+  if (packageParam) {
+    const serviceSelect = document.getElementById('service') as HTMLSelectElement;
+    const messageField = document.getElementById('message') as HTMLTextAreaElement;
+    if (serviceSelect && messageField) {
+      serviceSelect.value = 'web-design';
+      messageField.value = `I'm interested in the ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} package.`;
+    }
+  }
+</script>

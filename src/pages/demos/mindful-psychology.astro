@@ -1,0 +1,961 @@
+---
+// Mindful Psychology - Astro + Tailwind CSS Demo
+// A calming psychology practice website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Psychology | Compassionate Mental Health Care in Norwest</title>
+    <meta name="description" content="Professional psychology services in Norwest. Individual therapy, couples counselling, and children's psychology. Medicare rebates available.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Astro + Tailwind CSS Stack Demo */
+        :root {
+            --sage: #84a98c;
+            --sage-dark: #52796f;
+            --sage-light: #cad2c5;
+            --cream: #f5f5f0;
+            --lavender: #e6e6fa;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Libre Baskerville', serif;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--sage-dark), var(--sage));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.375rem;
+            color: var(--sage-dark);
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--sage-dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--sage);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--sage);
+            color: var(--sage-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--sage);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sage-light) 50%, var(--lavender) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(132, 169, 140, 0.2) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--sage-dark);
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--sage-dark);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .hero-card-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-card h3 {
+            color: var(--sage-dark);
+            font-size: 1.25rem;
+        }
+
+        .hero-features {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            right: -30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-feature {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero-feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-feature span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--sage-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--sage-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s;
+        }
+
+        .service-card:hover {
+            background: white;
+            box-shadow: 0 20px 50px rgba(132, 169, 140, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .service-card a {
+            color: var(--sage-dark);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Approach */
+        .approach {
+            padding: 120px 0;
+            background: var(--sage-dark);
+            color: white;
+        }
+
+        .approach .section-header h2 {
+            color: white;
+        }
+
+        .approach .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .approach .section-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .approach-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .approach-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .approach-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .approach-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Team */
+        .team {
+            padding: 120px 0;
+            background: var(--cream);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .team-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--sage-light), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+
+        .team-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .team-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .team-card .title {
+            color: var(--sage-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .team-card .quals {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .team-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--sage-dark);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--sage-light) 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .cta p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer h4 {
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--sage);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .hero-features {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin-top: 40px;
+            }
+
+            .services-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .services-grid,
+            .team-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-features {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🧠 This is a demo template built with Astro + Tailwind CSS | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌿</div>
+                    <div class="logo-text">
+                        <h1>Mindful Psychology</h1>
+                        <span>Compassionate Mental Health Care</span>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <a href="#services">Services</a>
+                    <a href="#approach">Our Approach</a>
+                    <a href="#team">Our Team</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">
+                        🌱 Norwest's Trusted Psychology Practice
+                    </div>
+                    <h1>Your Journey to <span>Wellbeing</span> Starts Here</h1>
+                    <p>We provide compassionate, evidence-based psychological services to help you navigate life's challenges. Our experienced team creates a safe, supportive space for healing and growth.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Book a Session</a>
+                        <a href="tel:0288901234" class="btn btn-outline">Call (02) 8890 1234</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <div class="hero-card-icon">🧘</div>
+                        <h3>Begin Your Healing Journey</h3>
+                    </div>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">💳</div>
+                            <span>Medicare Rebates</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">🏠</div>
+                            <span>Telehealth Available</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">📅</div>
+                            <span>Flexible Hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Our Services</div>
+                <h2>How We Can Help</h2>
+                <p>We offer a range of psychological services tailored to your unique needs, delivered with warmth and expertise.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👤</div>
+                    <h3>Individual Therapy</h3>
+                    <p>One-on-one sessions addressing anxiety, depression, trauma, stress, and personal growth in a confidential setting.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💑</div>
+                    <h3>Couples Counselling</h3>
+                    <p>Strengthen your relationship through improved communication, conflict resolution, and deeper connection.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧</div>
+                    <h3>Family Therapy</h3>
+                    <p>Address family dynamics, improve relationships, and create healthier patterns of interaction.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧒</div>
+                    <h3>Child & Adolescent</h3>
+                    <p>Specialised support for young people navigating behavioural, emotional, and developmental challenges.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">😰</div>
+                    <h3>Anxiety & Depression</h3>
+                    <p>Evidence-based treatments including CBT, ACT, and mindfulness to manage mood and anxiety disorders.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Workplace Wellness</h3>
+                    <p>Corporate programs addressing burnout, stress management, and building psychological resilience.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Our Approach</div>
+                <h2>What to Expect</h2>
+                <p>We use evidence-based approaches delivered with warmth and genuine care for your wellbeing.</p>
+            </div>
+
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <div class="approach-icon">🤝</div>
+                    <h3>Safe Space</h3>
+                    <p>A judgment-free environment where you can express yourself openly and honestly.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">🎯</div>
+                    <h3>Tailored Approach</h3>
+                    <p>Treatment plans personalised to your unique circumstances, goals, and preferences.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">📚</div>
+                    <h3>Evidence-Based</h3>
+                    <p>Proven techniques including CBT, ACT, EMDR, and mindfulness-based therapies.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">💚</div>
+                    <h3>Collaborative</h3>
+                    <p>Work together with your psychologist as an active partner in your healing journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Meet Our Team</div>
+                <h2>Experienced Psychologists</h2>
+                <p>Our registered psychologists bring years of experience and genuine passion for helping others.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👩‍⚕️</div>
+                    <div class="team-info">
+                        <h3>Dr. Rebecca Morrison</h3>
+                        <div class="title">Clinical Psychologist</div>
+                        <div class="quals">PhD, MAPS, CCLIN</div>
+                        <p>Specialises in anxiety, trauma, and depression using CBT and EMDR therapies.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👨‍⚕️</div>
+                    <div class="team-info">
+                        <h3>Daniel Park</h3>
+                        <div class="title">Registered Psychologist</div>
+                        <div class="quals">MPsych, MAPS</div>
+                        <p>Focuses on couples therapy, relationship issues, and men's mental health.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👩‍⚕️</div>
+                    <div class="team-info">
+                        <h3>Sarah Williams</h3>
+                        <div class="title">Child Psychologist</div>
+                        <div class="quals">MPsych(Clin), MAPS</div>
+                        <p>Expert in child development, behavioural issues, and family therapy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">FAQ</div>
+                <h2>Common Questions</h2>
+                <p>Answers to frequently asked questions about our services and what to expect.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Do I need a GP referral?</h3>
+                    <p>You don't need a referral to see us, but if you'd like to claim Medicare rebates, you'll need a Mental Health Treatment Plan from your GP, which entitles you to 10 subsidised sessions per year.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How much do sessions cost?</h3>
+                    <p>Our standard session fee is $220 for a 50-minute session. With a GP referral, you'll receive a Medicare rebate of $93.35, making your out-of-pocket cost $126.65.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How long is each session?</h3>
+                    <p>Standard sessions are 50 minutes. Initial assessments may run up to 60-90 minutes to ensure we thoroughly understand your needs and goals.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you offer telehealth?</h3>
+                    <p>Yes, we offer secure video sessions via Telehealth for clients who prefer remote appointments or are unable to attend in person.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is everything confidential?</h3>
+                    <p>Absolutely. All sessions are strictly confidential. We only share information with your consent or if required by law (such as risk of harm to self or others).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I book?</h3>
+                    <p>You can book online through our website, call us directly, or email us. We'll respond within 24 hours and match you with the most suitable psychologist.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Take the First Step?</h2>
+            <p>Reaching out is often the hardest part. We're here to make it easier. Book your initial consultation today.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Book Online</a>
+                <a href="tel:0288901234" class="btn btn-outline">Call (02) 8890 1234</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Mindful Psychology</h3>
+                    <p>Providing compassionate, evidence-based mental health care to the Norwest and Hills District community. We believe everyone deserves access to quality psychological support.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Individual Therapy</a></li>
+                        <li><a href="#">Couples Counselling</a></li>
+                        <li><a href="#">Family Therapy</a></li>
+                        <li><a href="#">Child Psychology</a></li>
+                        <li><a href="#">Telehealth</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0288901234">(02) 8890 1234</a></li>
+                        <li><a href="#">Suite 12, Norwest Marketown</a></li>
+                        <li><a href="#">Norwest NSW 2153</a></li>
+                        <li><a href="#">hello@mindfulpsych.com.au</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a href="#">Mon-Fri: 8am-8pm</a></li>
+                        <li><a href="#">Saturday: 9am-3pm</a></li>
+                        <li><a href="#">Sunday: Closed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mindful Psychology. Built with Astro + Tailwind CSS.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

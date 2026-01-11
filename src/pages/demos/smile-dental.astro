@@ -1,0 +1,606 @@
+---
+// Demo: Smile Dental Castle Hill - Dental Clinic
+// Built with: Django + Bootstrap (simulated)
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Dental Castle Hill | Family Dentist | Hills District</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-light: #14b8a6;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --bg: #f0fdfa;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.6; }
+    h1, h2, h3, h4 { font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-accent { background: var(--accent); color: var(--white); }
+    .btn-accent:hover { background: #d97706; }
+    .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+    .demo-banner {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .demo-banner a { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 28px; height: 28px; fill: var(--primary); }
+    .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .nav { display: flex; gap: 2rem; list-style: none; }
+    .nav a { color: var(--text); font-weight: 500; transition: color 0.2s; }
+    .nav a:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bg) 0%, #ccfbf1 100%);
+      padding: 5rem 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; }
+    .hero-features {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #99f6e4;
+    }
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .hero-feature svg { width: 20px; height: 20px; stroke: var(--primary); }
+    .hero-image {
+      background: var(--white);
+      border-radius: 20px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(13,148,136,0.15);
+    }
+    .hero-image svg { width: 120px; height: 120px; stroke: var(--primary-light); }
+
+    /* Services */
+    .services {
+      padding: 5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    .section-header p { color: var(--text-light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+    }
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .service-icon svg { width: 32px; height: 32px; stroke: var(--primary); }
+    .service-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.9rem; color: var(--text-light); }
+
+    /* Why Us */
+    .why-us {
+      padding: 5rem 0;
+      background: var(--primary);
+      color: var(--white);
+    }
+    .why-us .section-header h2 { color: var(--white); }
+    .why-us .section-header p { color: rgba(255,255,255,0.8); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .why-card {
+      text-align: center;
+      padding: 2rem;
+    }
+    .why-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .why-icon svg { width: 36px; height: 36px; stroke: var(--accent); }
+    .why-card h3 { margin-bottom: 0.75rem; }
+    .why-card p { font-size: 0.95rem; opacity: 0.85; }
+
+    /* Team */
+    .team {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .team-photo {
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-photo svg { width: 80px; height: 80px; stroke: rgba(255,255,255,0.4); }
+    .team-info { padding: 1.5rem; text-align: center; }
+    .team-info h3 { margin-bottom: 0.25rem; }
+    .team-info .role { color: var(--primary); font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .team-info p { font-size: 0.9rem; color: var(--text-light); }
+
+    /* Booking CTA */
+    .booking-cta {
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .booking-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 4rem;
+      border-radius: 24px;
+    }
+    .booking-box h2 { margin-bottom: 1rem; font-size: 2rem; }
+    .booking-box p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+    .booking-box .btn-accent { font-size: 1.1rem; padding: 1rem 2.5rem; }
+
+    /* Footer */
+    .footer {
+      background: #134e4a;
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer h4 { margin-bottom: 1.5rem; }
+    .footer p { opacity: 0.8; font-size: 0.95rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { opacity: 0.8; transition: opacity 0.2s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-grid, .why-grid, .team-grid, .footer-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .hero-features { flex-wrap: wrap; }
+      .hero-cta { flex-direction: column; }
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Demo website by <a href="/">Cosmos Web Tech</a>. <a href="/contact">Get your dental practice online →</a>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/demos/smile-dental" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <span class="logo-text">Smile Dental</span>
+      </a>
+
+      <ul class="nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#book" class="btn btn-primary">Book Online</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Your Family's Smile is Our Priority</h1>
+          <p>Gentle, modern dental care for the whole family. Serving Castle Hill, Bella Vista, and the Hills District with compassionate dentistry.</p>
+          <div class="hero-cta">
+            <a href="#book" class="btn btn-primary">Book Appointment</a>
+            <a href="tel:0298761234" class="btn btn-outline">Call (02) 9876 1234</a>
+          </div>
+          <div class="hero-features">
+            <div class="hero-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Same Day Emergency</span>
+            </div>
+            <div class="hero-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>All Health Funds</span>
+            </div>
+            <div class="hero-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Payment Plans</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Dental Services</h2>
+        <p>Comprehensive care for beautiful, healthy smiles</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            </svg>
+          </div>
+          <h3>General Dentistry</h3>
+          <p>Check-ups, cleanings, fillings, and preventive care</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3>Cosmetic Dentistry</h3>
+          <p>Whitening, veneers, and smile makeovers</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>Orthodontics</h3>
+          <p>Invisalign and clear aligners for all ages</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Emergency Care</h3>
+          <p>Same-day appointments for dental emergencies</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </div>
+          <h3>Teeth Whitening</h3>
+          <p>Professional whitening for a brighter smile</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+          </div>
+          <h3>Dental Implants</h3>
+          <p>Permanent solutions for missing teeth</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Kids Dentistry</h3>
+          <p>Gentle care for children of all ages</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3>Root Canal</h3>
+          <p>Pain-free treatment to save your tooth</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Smile Dental?</h2>
+        <p>Experience dentistry the way it should be</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3>Local & Convenient</h3>
+          <p>Located in Castle Hill with easy parking and public transport access. Flexible hours including Saturdays.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Latest Technology</h3>
+          <p>Digital X-rays, intraoral cameras, and modern equipment for faster, more comfortable treatment.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Gentle Care</h3>
+          <p>Anxiety-free dentistry with gentle techniques and sedation options available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Your Dental Team</h2>
+        <p>Experienced professionals dedicated to your smile</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Emily Park</h3>
+            <div class="role">Principal Dentist</div>
+            <p>15+ years experience. Special interest in cosmetic dentistry.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3>Dr. James Liu</h3>
+            <div class="role">General Dentist</div>
+            <p>Expertise in family dentistry and children's dental care.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Sarah Mitchell</h3>
+            <div class="role">Orthodontist</div>
+            <p>Certified Invisalign provider with 10+ years experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-cta" id="book">
+    <div class="container">
+      <div class="booking-box">
+        <h2>Ready for Your Best Smile?</h2>
+        <p>New patients receive a comprehensive exam, clean, and X-rays for just $199. Health fund rebates apply.</p>
+        <a href="#" class="btn btn-accent">Book Your Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Smile Dental Castle Hill</h4>
+          <p>Your trusted family dentist in the Hills District since 2010.</p>
+          <p style="margin-top: 1rem;">Shop 5, 28 Main Street<br>Castle Hill NSW 2154</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">General Dentistry</a></li>
+            <li><a href="#">Cosmetic Dentistry</a></li>
+            <li><a href="#">Orthodontics</a></li>
+            <li><a href="#">Emergency Care</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul class="footer-links">
+            <li>Mon-Fri: 8am - 6pm</li>
+            <li>Saturday: 9am - 2pm</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>Phone: (02) 9876 1234</li>
+            <li>Email: hello@smiledental.com.au</li>
+            <li>Emergency: 0400 123 456</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Smile Dental Castle Hill. | Demo by <a href="/" style="color: var(--primary-light);">Cosmos Web Tech</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

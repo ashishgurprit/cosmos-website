@@ -1,0 +1,1000 @@
+---
+// Shield Insurance - PHP + jQuery Demo
+// A professional insurance broker website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shield Insurance | Your Local Insurance Broker in Seven Hills</title>
+    <meta name="description" content="Independent insurance broker in Seven Hills. Home, car, business, and life insurance. Compare policies from top insurers and save.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* PHP + jQuery Stack Demo */
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #dc2626;
+            --accent: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f3f4f6;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-dark);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #b91c1c;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero .btn-primary {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        .hero .btn-primary:hover {
+            background: #d97706;
+        }
+
+        .hero .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .hero .btn-outline:hover {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            color: var(--text);
+        }
+
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+        }
+
+        .insurance-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .insurance-type {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .insurance-type:hover {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .insurance-type-icon {
+            font-size: 1.5rem;
+        }
+
+        .insurance-type span {
+            font-weight: 500;
+        }
+
+        /* Insurance Products */
+        .products {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .product-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Partners */
+        .partners {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .partners h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            background: var(--bg-light);
+            padding: 20px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 1.25rem;
+        }
+
+        /* Quote CTA */
+        .quote-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, #991b1b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .quote-cta h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .quote-cta p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .quote-cta .btn {
+            background: white;
+            color: var(--secondary);
+            font-size: 1rem;
+            padding: 15px 40px;
+        }
+
+        .quote-cta .btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-details-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav, .top-bar {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .insurance-types {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🛡️ This is a demo template built with PHP + jQuery | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div>📍 Shop 8, Seven Hills Plaza, Seven Hills NSW 2147</div>
+                <div class="top-bar-right">
+                    <a href="tel:0296221234">📞 (02) 9622 1234</a>
+                    <span>⏰ Mon-Fri: 9am-5pm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🛡️</div>
+                    <div class="logo-text">
+                        SHIELD
+                        <span>Insurance Brokers</span>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <a href="#products">Products</a>
+                    <a href="#why-us">Why Choose Us</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" class="btn btn-primary">Get a Quote</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>Protect What Matters Most</h1>
+                    <p>As your local independent insurance broker, we compare policies from Australia's leading insurers to find the right cover at the best price. No commissions bias, just honest advice.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Get Free Quote</a>
+                        <a href="tel:0296221234" class="btn btn-outline">Call Us Now</a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>What do you need to insure?</h3>
+                    <div class="insurance-types">
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">🏠</span>
+                            <span>Home & Contents</span>
+                        </div>
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">🚗</span>
+                            <span>Car Insurance</span>
+                        </div>
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">💼</span>
+                            <span>Business Insurance</span>
+                        </div>
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">❤️</span>
+                            <span>Life Insurance</span>
+                        </div>
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">🏥</span>
+                            <span>Health Insurance</span>
+                        </div>
+                        <div class="insurance-type">
+                            <span class="insurance-type-icon">✈️</span>
+                            <span>Travel Insurance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Insurance Products</h2>
+                <p>We offer comprehensive insurance solutions for individuals, families, and businesses across Western Sydney.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🏠</div>
+                    <h3>Home Insurance</h3>
+                    <p>Protect your home and belongings from fire, theft, storm damage, and more.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3>Car Insurance</h3>
+                    <p>Comprehensive, third party, and CTP green slips at competitive rates.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">💼</div>
+                    <h3>Business Insurance</h3>
+                    <p>Public liability, professional indemnity, and business package policies.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">❤️</div>
+                    <h3>Life Insurance</h3>
+                    <p>Life cover, income protection, TPD, and trauma insurance options.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🏗️</div>
+                    <h3>Tradies Insurance</h3>
+                    <p>Tools, public liability, and professional cover for tradies.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🏢</div>
+                    <h3>Landlord Insurance</h3>
+                    <p>Protect your investment property and rental income.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🚛</div>
+                    <h3>Fleet Insurance</h3>
+                    <p>Cover multiple vehicles under one policy with volume discounts.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">✈️</div>
+                    <h3>Travel Insurance</h3>
+                    <p>Domestic and international travel protection for you and your family.</p>
+                    <a href="#">Get Quote →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Shield Insurance?</h2>
+                <p>We're not tied to any single insurer, so we can find the best policy for your needs.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🔍</div>
+                    <h3>Compare Multiple Insurers</h3>
+                    <p>We compare policies from 20+ leading Australian insurers to find you the best cover and price.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Independent Advice</h3>
+                    <p>We work for you, not the insurance companies. Our advice is always in your best interest.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">📞</div>
+                    <h3>Claims Support</h3>
+                    <p>When you need to claim, we're in your corner. We'll advocate for you and manage the process.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">📍</div>
+                    <h3>Local & Personal</h3>
+                    <p>We're part of the Seven Hills community. Drop in for a chat or call us anytime.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Save Money</h3>
+                    <p>Our clients save an average of 20% compared to going direct to an insurer.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">⭐</div>
+                    <h3>5-Star Reviews</h3>
+                    <p>Don't just take our word for it. Check our Google reviews from happy clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="container">
+            <h3>We Compare Policies From Australia's Leading Insurers</h3>
+            <div class="partners-logos">
+                <div class="partner-logo">NRMA</div>
+                <div class="partner-logo">Allianz</div>
+                <div class="partner-logo">QBE</div>
+                <div class="partner-logo">GIO</div>
+                <div class="partner-logo">CGU</div>
+                <div class="partner-logo">Suncorp</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-cta">
+        <div class="container">
+            <h2>Get Your Free Insurance Quote Today</h2>
+            <p>It only takes a few minutes. No obligation, no pressure.</p>
+            <a href="#" class="btn">Request Free Quote</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about your insurance needs? Drop by our office, give us a call, or send us a message. We're here to help.</p>
+
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-details-icon">📍</div>
+                            <div>
+                                <strong>Visit Us</strong><br>
+                                Shop 8, Seven Hills Plaza<br>
+                                Seven Hills NSW 2147
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-details-icon">📞</div>
+                            <div>
+                                <strong>Call Us</strong><br>
+                                (02) 9622 1234
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-details-icon">📧</div>
+                            <div>
+                                <strong>Email Us</strong><br>
+                                info@shieldinsurance.com.au
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-details-icon">⏰</div>
+                            <div>
+                                <strong>Office Hours</strong><br>
+                                Mon-Fri: 9am-5pm<br>
+                                Sat: 9am-12pm (by appointment)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Request a Callback</h3>
+                    <form>
+                        <div class="form-row">
+                            <div>
+                                <label>First Name</label>
+                                <input type="text" placeholder="John">
+                            </div>
+                            <div>
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Smith">
+                            </div>
+                        </div>
+
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="0400 000 000">
+
+                        <label>Insurance Type</label>
+                        <select>
+                            <option>Select insurance type...</option>
+                            <option>Home & Contents</option>
+                            <option>Car Insurance</option>
+                            <option>Business Insurance</option>
+                            <option>Life Insurance</option>
+                            <option>Other</option>
+                        </select>
+
+                        <label>Message</label>
+                        <textarea placeholder="Tell us briefly about your insurance needs..."></textarea>
+
+                        <button type="submit" class="btn btn-primary">Request Callback</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Shield Insurance Brokers</h4>
+                    <p>Your local independent insurance broker serving Seven Hills and Western Sydney since 2008. We compare policies from Australia's leading insurers to find the right cover at the best price.</p>
+                    <p style="margin-top: 15px;">ABN: 12 345 678 901<br>AFSL: 123456</p>
+                </div>
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Home Insurance</a></li>
+                        <li><a href="#">Car Insurance</a></li>
+                        <li><a href="#">Business Insurance</a></li>
+                        <li><a href="#">Life Insurance</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0296221234">(02) 9622 1234</a></li>
+                        <li><a href="#">Shop 8, Seven Hills Plaza</a></li>
+                        <li><a href="#">Seven Hills NSW 2147</a></li>
+                        <li><a href="#">info@shieldinsurance.com.au</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Financial Services Guide</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Complaints</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shield Insurance Brokers. AFSL 123456. Built with PHP + jQuery.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

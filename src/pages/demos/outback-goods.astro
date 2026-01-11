@@ -1,0 +1,1088 @@
+---
+// Outback Goods - Shopify + Liquid Demo
+// An Australian-themed e-commerce store template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outback Goods | Australian Made & Natural Products</title>
+    <meta name="description" content="Discover authentic Australian-made products. From bush honey to native skincare. Free shipping on orders over $75.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Shopify + Liquid Stack Demo */
+        :root {
+            --earth: #78350f;
+            --earth-dark: #451a03;
+            --terracotta: #c2410c;
+            --sand: #fef3c7;
+            --sage: #65a30d;
+            --cream: #fffbeb;
+            --text: #1c1917;
+            --text-light: #57534e;
+            --white: #ffffff;
+            --border: #e7e5e4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--earth-dark), var(--earth));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: var(--sand);
+            text-decoration: underline;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: var(--earth);
+            color: var(--sand);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--earth-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--terracotta);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--terracotta);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--earth);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--earth-dark);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--earth);
+            color: var(--earth);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--earth);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(194, 65, 12, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--earth);
+            color: var(--sand);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: var(--earth-dark);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hero-product {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero-product:first-child {
+            transform: translateY(30px);
+        }
+
+        .hero-product-image {
+            height: 180px;
+            background: var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .hero-product-info {
+            padding: 20px;
+        }
+
+        .hero-product-info h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-product-info .price {
+            color: var(--terracotta);
+            font-weight: 700;
+        }
+
+        /* Features */
+        .features {
+            padding: 40px 0;
+            background: var(--earth);
+            color: var(--sand);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 1.75rem;
+        }
+
+        .feature h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .feature span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Products */
+        .products {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.25rem;
+            color: var(--earth-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .section-header a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 220px;
+            background: var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--sage);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-badge.sale {
+            background: var(--terracotta);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-price .current {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--earth);
+        }
+
+        .product-price .original {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .product-rating {
+            color: #f59e0b;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            background: var(--sand);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+        }
+
+        .category-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+            font-size: 5rem;
+        }
+
+        .category-content {
+            position: relative;
+            padding: 30px;
+            color: white;
+            width: 100%;
+        }
+
+        .category-content h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .category-content span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* About */
+        .about {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            background: var(--sand);
+            height: 450px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+        }
+
+        .about-text h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--earth-dark);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--sand);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .about-feature span {
+            font-weight: 500;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: var(--earth-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .newsletter p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form .btn {
+            background: var(--terracotta);
+        }
+
+        .newsletter-form .btn:hover {
+            background: #9a3412;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            color: #a8a29e;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul a {
+            color: #a8a29e;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .payment-icon {
+            background: #44403c;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #44403c;
+            text-align: center;
+            color: #a8a29e;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--terracotta);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .categories-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🛒 This is a demo template built with Shopify + Liquid | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <div class="announcement">
+        🌿 Free shipping on all orders over $75! Use code OUTBACK10 for 10% off your first order.
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🦘</span>
+                    Outback Goods
+                </a>
+
+                <nav class="nav">
+                    <a href="#products">Shop All</a>
+                    <a href="#categories">Categories</a>
+                    <a href="#about">Our Story</a>
+                    <a href="#">Gift Sets</a>
+                    <a href="#">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn">🔍</button>
+                    <button class="icon-btn">👤</button>
+                    <button class="icon-btn">
+                        🛒
+                        <span class="cart-count">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-tag">🇦🇺 Proudly Australian</div>
+                    <h1>Natural Products from the Australian Bush</h1>
+                    <p>Discover our curated collection of authentic Australian-made goods. From native botanicals to artisan foods, every product tells a story of our land.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Shop Collection</a>
+                        <a href="#" class="btn btn-outline">Our Story</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-product">
+                        <div class="hero-product-image">🍯</div>
+                        <div class="hero-product-info">
+                            <h4>Native Bush Honey</h4>
+                            <div class="price">$34.95</div>
+                        </div>
+                    </div>
+                    <div class="hero-product">
+                        <div class="hero-product-image">🧴</div>
+                        <div class="hero-product-info">
+                            <h4>Kakadu Plum Serum</h4>
+                            <div class="price">$49.95</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">🚚</span>
+                    <div>
+                        <h4>Free Shipping</h4>
+                        <span>On orders over $75</span>
+                    </div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🇦🇺</span>
+                    <div>
+                        <h4>Australian Made</h4>
+                        <span>Supporting local producers</span>
+                    </div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🌿</span>
+                    <div>
+                        <h4>100% Natural</h4>
+                        <span>No nasties, ever</span>
+                    </div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <div>
+                        <h4>Secure Checkout</h4>
+                        <span>Shop with confidence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2>Best Sellers</h2>
+                    <p>Our most loved products by the Outback community</p>
+                </div>
+                <a href="#">View All Products →</a>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Best Seller</span>
+                        🍯
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Native Bush Honey 500g</div>
+                        <div class="product-price">
+                            <span class="current">$34.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (128)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge sale">Sale</span>
+                        🧴
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Kakadu Plum Face Serum</div>
+                        <div class="product-price">
+                            <span class="current">$44.95</span>
+                            <span class="original">$54.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (89)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🫒
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Macadamia Oil 250ml</div>
+                        <div class="product-price">
+                            <span class="current">$28.95</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (56)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">New</span>
+                        🧼
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Tea Tree Soap Bar</div>
+                        <div class="product-price">
+                            <span class="current">$12.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (34)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🫖
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Lemon Myrtle Tea</div>
+                        <div class="product-price">
+                            <span class="current">$16.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (78)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge sale">Sale</span>
+                        🕯️
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Eucalyptus Candle</div>
+                        <div class="product-price">
+                            <span class="current">$24.95</span>
+                            <span class="original">$32.95</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (42)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🥜
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Native Seed Mix</div>
+                        <div class="product-price">
+                            <span class="current">$18.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (61)</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🧴
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Wattle Seed Body Lotion</div>
+                        <div class="product-price">
+                            <span class="current">$32.95</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (47)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2>Shop by Category</h2>
+                    <p>Find exactly what you're looking for</p>
+                </div>
+            </div>
+
+            <div class="categories-grid">
+                <a href="#" class="category-card" style="background: #fef3c7;">
+                    <span class="category-icon">🍯</span>
+                    <div class="category-content">
+                        <h3>Native Foods</h3>
+                        <span>24 products</span>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card" style="background: #d1fae5;">
+                    <span class="category-icon">🧴</span>
+                    <div class="category-content">
+                        <h3>Skincare</h3>
+                        <span>32 products</span>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card" style="background: #fce7f3;">
+                    <span class="category-icon">🕯️</span>
+                    <div class="category-content">
+                        <h3>Home & Living</h3>
+                        <span>18 products</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">🌿</div>
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Outback Goods was born from a love of Australia's unique landscapes and the incredible natural resources they provide. We partner directly with small Australian producers and indigenous communities to bring you the finest native products.</p>
+                    <p>Every product in our store has been carefully selected for its quality, sustainability, and authentic Australian heritage. When you shop with us, you're supporting local farmers, artisans, and traditional knowledge keepers.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🌱</div>
+                            <span>Sustainably Sourced</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">👥</div>
+                            <span>Indigenous Partnerships</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🇦🇺</div>
+                            <span>100% Australian Made</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">♻️</div>
+                            <span>Eco-Friendly Packaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join the Outback Family</h2>
+            <p>Subscribe for exclusive offers, new arrivals, and a 10% discount on your first order.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Outback Goods</h4>
+                    <p>Bringing the best of Australian nature to your doorstep. We're committed to quality, sustainability, and supporting local communities.</p>
+                    <div class="payment-icons">
+                        <span class="payment-icon">Visa</span>
+                        <span class="payment-icon">MC</span>
+                        <span class="payment-icon">Amex</span>
+                        <span class="payment-icon">PayPal</span>
+                    </div>
+                </div>
+                <div>
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Native Foods</a></li>
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Home & Living</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Outback Goods. Built with Shopify + Liquid.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

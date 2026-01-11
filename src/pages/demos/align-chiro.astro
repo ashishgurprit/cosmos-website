@@ -1,0 +1,1009 @@
+---
+// Align Chiropractic - Next.js + Styled Components Demo
+// A modern chiropractic clinic website template
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Chiropractic | Spine & Wellness Centre Castle Hill</title>
+    <meta name="description" content="Expert chiropractic care in Castle Hill. Specialising in back pain, neck pain, headaches, and sports injuries. Book your initial consultation today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Next.js + Styled Components Stack Demo */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --secondary: #06b6d4;
+            --accent: #f472b6;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            position: fixed;
+            width: 100%;
+            top: 40px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+            transform: rotate(-5deg);
+        }
+
+        .logo-text {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 101;
+        }
+
+        .demo-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 200px 0 120px;
+            background: var(--bg-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-main {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 480px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: white;
+            padding: 24px 32px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: var(--primary-light);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .service-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .service-card a:hover {
+            gap: 10px;
+        }
+
+        /* Process */
+        .process {
+            padding: 100px 0;
+            background: var(--bg-gradient);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Team */
+        .team {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+
+        .team-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px dashed var(--primary);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .team-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .team-card .title {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .team-card .qualifications {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .testimonials .section-header h2 {
+            color: white;
+        }
+
+        .testimonials .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .testimonials .section-tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .cta p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                margin-top: 40px;
+                justify-content: center;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 160px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🦴 This is a demo template built with Next.js + Styled Components | <a href="/demos">View All Demos</a> | <a href="/contact">Get This Design</a>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-mark">A</div>
+                    <span class="logo-text">Align<span>Chiro</span></span>
+                </a>
+
+                <nav class="nav">
+                    <a href="#services">Services</a>
+                    <a href="#process">How It Works</a>
+                    <a href="#team">Our Team</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-tag">
+                        ✨ Castle Hill's Trusted Chiropractors
+                    </div>
+                    <h1>Feel Better, Move Better, <span>Live Better</span></h1>
+                    <p>Expert chiropractic care tailored to your needs. We help you find lasting relief from pain and achieve optimal spinal health using evidence-based techniques.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Book Consultation →</a>
+                        <a href="tel:0296341234" class="btn btn-outline">📞 (02) 9634 1234</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-main">🧘</div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">10K+</div>
+                            <div class="stat-label">Patients Treated</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">4.9</div>
+                            <div class="stat-label">Google Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Services</div>
+                <h2>Comprehensive Chiropractic Care</h2>
+                <p>From acute pain relief to preventive wellness care, we offer a full range of chiropractic services to keep you moving at your best.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🦴</div>
+                    <h3>Spinal Adjustments</h3>
+                    <p>Precise, gentle adjustments to restore proper alignment and reduce nerve interference for optimal function.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏃</div>
+                    <h3>Sports Injuries</h3>
+                    <p>Specialised treatment for athletes recovering from injuries and looking to enhance performance.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💆</div>
+                    <h3>Neck & Back Pain</h3>
+                    <p>Effective relief for chronic or acute neck and back pain using proven chiropractic techniques.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤕</div>
+                    <h3>Headache Relief</h3>
+                    <p>Natural treatment for tension headaches and migraines by addressing underlying spinal issues.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤰</div>
+                    <h3>Pregnancy Care</h3>
+                    <p>Safe, gentle adjustments to support expecting mothers through pregnancy and prepare for birth.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Posture Correction</h3>
+                    <p>Address postural imbalances from desk work with customised correction programs.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Your Journey</div>
+                <h2>How We Help You Heal</h2>
+                <p>Our patient-centred approach ensures you receive personalized care every step of the way.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Initial Consultation</h3>
+                    <p>Comprehensive health history and examination to understand your needs</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Diagnosis</h3>
+                    <p>Thorough analysis including X-rays if needed to identify the root cause</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Treatment Plan</h3>
+                    <p>Customised care plan designed to achieve your health goals</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Ongoing Care</h3>
+                    <p>Regular adjustments and progress monitoring for lasting results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Meet The Team</div>
+                <h2>Expert Chiropractors</h2>
+                <p>Our highly qualified team is dedicated to helping you achieve optimal health and wellness.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👨‍⚕️</div>
+                    <h3>Dr. James Mitchell</h3>
+                    <div class="title">Principal Chiropractor</div>
+                    <div class="qualifications">B.Chiro.Sc, M.Chiro | 15 Years Experience</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👩‍⚕️</div>
+                    <h3>Dr. Emily Zhang</h3>
+                    <div class="title">Sports Chiropractor</div>
+                    <div class="qualifications">B.Chiro.Sc, M.Chiro, CCSP | 8 Years Experience</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">👨‍⚕️</div>
+                    <h3>Dr. Ryan O'Connor</h3>
+                    <div class="title">Chiropractor</div>
+                    <div class="qualifications">B.Chiro.Sc, M.Chiro | 5 Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Testimonials</div>
+                <h2>What Our Patients Say</h2>
+                <p>Don't just take our word for it — hear from the thousands of patients we've helped.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"After years of chronic back pain, I finally found relief at Align. Dr. Mitchell's approach is thorough and the results speak for themselves."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <span>Castle Hill</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"The team here is fantastic. They take the time to explain everything and genuinely care about your progress. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <span>Kellyville</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Dr. Zhang helped me recover from a sports injury when I thought my running days were over. Now I'm back to marathons!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <span>Baulkham Hills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Healing Journey?</h2>
+            <p>Book your initial consultation today and take the first step towards a pain-free life. New patient special available.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Book Online Now →</a>
+                <a href="tel:0296341234" class="btn btn-outline">📞 Call (02) 9634 1234</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Align Chiropractic</h4>
+                    <p>Your trusted partner for spinal health and wellness in Castle Hill and the Hills District. We're committed to helping you live your best life through expert chiropractic care.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Spinal Adjustments</a></li>
+                        <li><a href="#">Sports Injuries</a></li>
+                        <li><a href="#">Neck & Back Pain</a></li>
+                        <li><a href="#">Headache Relief</a></li>
+                        <li><a href="#">Pregnancy Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:0296341234">(02) 9634 1234</a></li>
+                        <li><a href="#">Suite 5, 23 Victoria Ave</a></li>
+                        <li><a href="#">Castle Hill NSW 2154</a></li>
+                        <li><a href="#">info@alignchiro.com.au</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a href="#">Mon-Fri: 8am-7pm</a></li>
+                        <li><a href="#">Saturday: 8am-1pm</a></li>
+                        <li><a href="#">Sunday: Closed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Align Chiropractic. Built with Next.js + Styled Components.</p>
+                <p style="margin-top: 10px;">Demo by <a href="/">Cosmos Web Tech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
