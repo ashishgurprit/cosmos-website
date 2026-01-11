@@ -13,7 +13,7 @@ The following 4 resource pages need to be updated with Turnstile and proxy:
 Find the form's submit button and add Turnstile widget BEFORE it:
 ```html
 <!-- Cloudflare Turnstile Widget -->
-<div class="cf-turnstile" data-sitekey="0x4AAAAAAAzsB5pP7TqT9oRx" data-theme="light"></div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAACL6iirwP7c-dYYc" data-theme="light"></div>
 ```
 
 ### 2. Update JavaScript Form Submission

@@ -20,7 +20,7 @@
    - **Environment**: Select both Production and Preview
 7. Click **Save**
 
-**Note**: The Site Key is already configured in the code (`0x4AAAAAAAzsB5pP7TqT9oRx`). If you need a different site key, update it in:
+**Note**: The Site Key is already configured in the code (`0x4AAAAAACL6iirwP7c-dYYc`). If you need a different site key, update it in:
 - `/src/config/forms.ts`
 - All form files (search for `data-sitekey`)
 

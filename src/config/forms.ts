@@ -10,7 +10,7 @@ export const FORM_IDS = {
   COST_GUIDE: '44',       // Website cost guide download
 } as const;
 
-export const TURNSTILE_SITE_KEY = '0x4AAAAAAAzsB5pP7TqT9oRx'; // Replace with your actual Turnstile site key
+export const TURNSTILE_SITE_KEY = '0x4AAAAAACL6iirwP7c-dYYc'; // Turnstile site key for form spam protection
 
 export interface FormSubmissionData {
   formId: string;
