@@ -1,4 +1,6 @@
 ---
+import CookieConsent from '../components/CookieConsent.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -51,14 +53,22 @@ const isResourcePage = currentPath.includes('/resources');
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/images/logo.png" />
 
-    <!-- Google Analytics (GA4) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9NFCBVPD6"></script>
+    <!-- Google Analytics (GA4) with Consent Mode -->
     <script is:inline>
+      // Set default consent to denied
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': 500
+      });
       gtag('js', new Date());
-      gtag('config', 'G-W9NFCBVPD6');
+      gtag('config', 'G-W9NFCBVPD6', {
+        'anonymize_ip': true
+      });
     </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9NFCBVPD6"></script>
 
     <!-- Preconnect to third-party domains for performance -->
     <link rel="preconnect" href="https://mautic.cloudgeeks.com.au" />
@@ -574,6 +584,9 @@ const isResourcePage = currentPath.includes('/resources');
         });
       }
     </script>
+
+    <!-- Cookie Consent Banner -->
+    <CookieConsent />
   </body>
 </html>
 
