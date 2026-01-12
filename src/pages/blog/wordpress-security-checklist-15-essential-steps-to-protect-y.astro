@@ -1,0 +1,618 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "WordPress Security Checklist: 15 Essential Steps to Protect Your Small Business Website in 2024";
+const description = "Protect your small business WordPress site with our comprehensive security checklist. Expert tips from Western Sydney's web design specialists.";
+const date = "2026-01-12";
+const readTime = "7 min read";
+const category = "WordPress Security";
+---
+
+<Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
+              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
+              <circle cx="25" cy="42" r="2" fill="#64748b"/>
+              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
+              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Cosmos Web Tech</span>
+            <span class="brand-tagline">Your Digital Universe</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" class="btn btn-primary btn-small">Get Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <article class="blog-post">
+    <div class="container">
+      <header class="post-header">
+        <div class="post-meta">
+          <span class="post-category">{category}</span>
+          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+        </div>
+        <h1>{title}</h1>
+        <p class="post-excerpt">{description}</p>
+        <div class="post-info">
+          <span class="read-time">{readTime}</span>
+        </div>
+      </header>
+
+      <div class="post-featured-image">
+        <img src="/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-1.jpg" alt="{title}" />
+      </div>
+
+      <div class="post-content">
+        <h1>WordPress Security Checklist: 15 Essential Steps to Protect Your Small Business Website in 2024</h1>
+
+<p>As a small business owner in Western Sydney, your WordPress website is often the first point of contact between you and potential customers. But did you know that <strong>WordPress sites are targeted in 90% of all hacked CMS websites</strong>? At Cosmos Web Tech, we've seen firsthand how a security breach can devastate a small business – from lost revenue and damaged reputation to costly recovery processes.</p>
+
+<p>The good news? Most WordPress security issues are entirely preventable with the right approach. This comprehensive checklist will walk you through the essential security measures every small business should use to protect their WordPress website from cyber threats.</p>
+
+<h2>Why WordPress Security Matters for Small Businesses</h2>
+
+<p>Many small business owners assume they're "too small" to be targeted by hackers. This couldn't be further from the truth. In fact, <strong>43% of cyber attacks target small businesses</strong>, and the average cost of a data breach for small businesses is $2.98 million according to IBM's 2023 Cost of a Data Breach Report.</p>
+
+<p>For Western Sydney businesses, a security breach can mean:
+<ul>
+<li><strong>Lost customer trust and reputation damage</strong></li>
+<li><strong>Downtime affecting sales and operations</strong></li>
+<li><strong>Legal compliance issues and potential fines</strong></li>
+<li><strong>Costly recovery and remediation processes</strong></li>
+<li><strong>Search engine penalties affecting your SEO rankings</strong></p></li>
+</ul>
+
+<p>WordPress's popularity (powering 43% of all websites) makes it an attractive target for cybercriminals. However, most vulnerabilities stem from outdated software, weak passwords, and poorly configured security settings – all issues that are easily addressable with proper planning.</p>
+
+<h2>Foundation Security: Updates, Backups, and User Management</h2>
+
+<h3>Keep Everything Updated</h3>
+
+<p>The most critical security measure is maintaining current versions of WordPress core, themes, and plugins. <strong>78% of WordPress vulnerabilities are found in plugins</strong>, making regular updates essential.</p>
+
+<strong>WordPress Core Updates:</strong>
+<ul>
+<li>Enable automatic updates for minor releases</li>
+<li>Test major updates on a staging site first</li>
+<li>Update within 48 hours of security releases</li>
+</ul>
+
+<strong>Plugin and Theme Updates:</strong>
+<ul>
+<li>Review and update plugins monthly</li>
+<li>Remove unused plugins and themes immediately</li>
+<li>Choose plugins with regular update schedules</li>
+<li>Verify plugin compatibility before updating</li>
+</ul>
+
+<strong>Pro Tip:</strong> Set up email notifications for available updates, but always test updates on a staging environment for business-critical websites.
+
+<h3>Use Robust Backup Systems</h3>
+
+<p>Backups are your safety net when security measures fail. A comprehensive backup strategy should include:</p>
+
+<strong>Automated Daily Backups:</strong>
+<ul>
+<li>Full site backups (files and database)</li>
+<li>Store backups off-site (cloud storage)</li>
+<li>Test restoration process monthly</li>
+<li>Maintain at least 30 days of backup history</li>
+</ul>
+
+<strong>Recommended Backup Plugins:</strong>
+<ul>
+<li><strong>UpdraftPlus:</strong> User-friendly with cloud storage integration</li>
+<li><strong>BackupBuddy:</strong> Comprehensive features for business sites</li>
+<li><strong>Jetpack Backup:</strong> Real-time backups with easy restoration</li>
+</ul>
+
+<h3>Secure User Management Practices</h3>
+
+<p>Weak user management is a common entry point for attackers. Use these practices:</p>
+
+<strong>Strong Password Policies:</strong>
+<ul>
+<li>Minimum 12 characters with mixed case, numbers, and symbols</li>
+<li>Use password managers like 1Password or LastPass</li>
+<li>Enforce password changes every 90 days</li>
+<li>Never reuse passwords across platforms</li>
+</ul>
+
+<strong>User Role Management:</strong>
+<ul>
+<li>Assign minimum necessary permissions</li>
+<li>Regularly audit user accounts</li>
+<li>Remove inactive user accounts</li>
+<li>Use unique usernames (avoid "admin")</li>
+</ul>
+
+<strong>Two-Factor Authentication (2FA):</strong>
+Use 2FA for all user accounts, especially administrators. Recommended plugins include:
+<ul>
+<li><strong>Wordfence Login Security</strong></li>
+<li><strong>Two Factor Authentication</strong></li>
+<li><strong>miniOrange's Google Authenticator</strong></li>
+</ul>
+
+<h2>Advanced Protection: Firewalls, Monitoring, and SSL</h2>
+
+<h3>Website Application Firewall (WAF)</h3>
+
+<p>A WAF acts as a barrier between your website and potential threats, filtering malicious traffic before it reaches your server.</p>
+
+<strong>Cloud-Based WAF Solutions:</strong>
+<ul>
+<li><strong>Cloudflare:</strong> Free tier available with DDoS protection</li>
+<li><strong>Sucuri:</strong> Specialized in WordPress security</li>
+<li><strong>Wordfence:</strong> Popular WordPress security plugin with WAF</li>
+</ul>
+
+<strong>Key WAF Features to Enable:</strong>
+<ul>
+<li>Malware scanning and removal</li>
+<li>Brute force attack protection</li>
+<li>IP blocking and country restrictions</li>
+<li>Rate limiting to prevent spam</li>
+</ul>
+
+<h3>Security Monitoring and Malware Detection</h3>
+
+<p>Proactive monitoring helps detect threats before they cause significant damage.</p>
+
+<strong>Essential Monitoring Features:</strong>
+<ul>
+<li><strong>File integrity monitoring:</strong> Alerts when core files are modified</li>
+<li><strong>Login attempt monitoring:</strong> Tracks failed login attempts</li>
+<li><strong>Malware scanning:</strong> Regular automated scans</li>
+<li><strong>Uptime monitoring:</strong> Alerts when your site goes down</li>
+</ul>
+
+<strong>Recommended Security Plugins:</strong>
+
+<strong>Wordfence Security:</strong>
+<ul>
+<li>Comprehensive malware scanner</li>
+<li>Real-time threat intelligence</li>
+<li>Login security features</li>
+<li>Free and premium versions available</li>
+</ul>
+
+<strong>Sucuri Security:</strong>
+<ul>
+<li>Security activity auditing</li>
+<li>File integrity monitoring</li>
+<li>Remote malware scanning</li>
+<li>Post-hack security actions</li>
+</ul>
+
+<h3>SSL Certificate Implementation</h3>
+
+<p>SSL certificates encrypt data between your website and visitors' browsers, essential for both security and SEO.</p>
+
+<strong>SSL Benefits:</strong>
+<ul>
+<li>Protects sensitive data transmission</li>
+<li>Improves search engine rankings</li>
+<li>Increases customer trust</li>
+<li>Required for e-commerce functionality</li>
+</ul>
+
+<strong>SSL Implementation Steps:</strong>
+1. Obtain SSL certificate from your hosting provider
+2. Install and configure the certificate
+3. Update WordPress URLs to HTTPS
+4. Set up 301 redirects from HTTP to HTTPS
+5. Update internal links and references
+6. Test all functionality post-implementation
+
+<h2>Server and Hosting Security Measures</h2>
+
+<h3>Choose Security-Focused Hosting</h3>
+
+<p>Your hosting provider is your first line of defense. Look for providers offering:</p>
+
+<strong>Essential Hosting Security Features:</strong>
+<ul>
+<li><strong>Regular server updates and patches</strong></li>
+<li><strong>Malware scanning and removal</strong></li>
+<li><strong>DDoS protection</strong></li>
+<li><strong>Secure data centers</strong></li>
+<li><strong>24/7 security monitoring</strong></li>
+<li><strong>Automated backups</strong></li>
+</ul>
+
+<strong>Recommended WordPress Hosting Providers:</strong>
+<ul>
+<li><strong>WP Engine:</strong> Premium managed WordPress hosting</li>
+<li><strong>SiteGround:</strong> Strong security features at competitive prices</li>
+<li><strong>Kinsta:</strong> Google Cloud-powered with advanced security</li>
+</ul>
+
+<h3>Secure File Permissions</h3>
+
+<p>Proper file permissions prevent unauthorized access to sensitive files.</p>
+
+<strong>Recommended WordPress File Permissions:</strong>
+<ul>
+<li><strong>Folders:</strong> 755 or 750</li>
+<li><strong>Files:</strong> 644 or 640</li>
+<li><strong>wp-config.php:</strong> 600</li>
+<li><strong>wp-admin:</strong> 750</li>
+</ul>
+
+<h3>Database Security</h3>
+
+<p>Protect your WordPress database with these measures:</p>
+
+<strong>Database Security Best Practices:</strong>
+<ul>
+<li>Change default table prefix from 'wp_'</li>
+<li>Use strong database passwords</li>
+<li>Limit database access to necessary users</li>
+<li>Regular database cleanup and optimization</li>
+<li>Enable database connection encryption</li>
+</ul>
+
+<strong>Database Hardening Steps:</strong>
+``<code>
+// Add to wp-config.php
+define('DISALLOW_FILE_EDIT', true);
+define('WP_DEBUG', false);
+define('FORCE_SSL_ADMIN', true);
+</code>`<code>
+
+<h2>WordPress-Specific Security Hardening</h2>
+
+<h3>Protect wp-config.php and Sensitive Files</h3>
+
+<p>The wp-config.php file contains sensitive database information and should be heavily protected.</p>
+
+<strong>wp-config.php Security Enhancements:</strong>
+</code>`<code>php
+// Security keys (generate unique keys)
+define('AUTH_KEY', 'your-unique-key-here');
+// ... other keys
+
+<p>// Disable file editing
+define('DISALLOW_FILE_EDIT', true);</p>
+
+<p>// Force SSL for admin
+define('FORCE_SSL_ADMIN', true);</p>
+
+<p>// Limit login attempts
+define('WP_LOGIN_ATTEMPTS', 3);
+</code>`<code></p>
+
+<h3>.htaccess Security Rules</h3>
+
+<p>Add these security rules to your .htaccess file:</p>
+
+</code>`<code>apache
+<h1>Protect wp-config.php</h1>
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+<h1>Disable directory browsing</h1>
+Options -Indexes
+
+<h1>Protect against script injections</h1>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (<|%3C).<em>script.</em>(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteRule ^(.*)$ index.php [F,L]
+</code>`<code>
+
+<h3>Hide WordPress Version Information</h3>
+
+<p>Prevent attackers from identifying your WordPress version:</p>
+
+</code>`<code>php
+// Add to functions.php
+function remove_wp_version() {
+    return '';
+}
+add_filter('the_generator', 'remove_wp_version');
+
+<p>// Remove version from scripts and styles
+function remove_version_scripts_styles($src) {
+    if (strpos($src, 'ver=')) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+add_filter('style_loader_src', 'remove_version_scripts_styles');
+add_filter('script_loader_src', 'remove_version_scripts_styles');
+</code>``</p>
+
+<h3>Limit Login Attempts</h3>
+
+<p>Prevent brute force attacks by limiting login attempts:</p>
+
+<strong>Plugin Solutions:</strong>
+<ul>
+<li><strong>Limit Login Attempts Reloaded</strong></li>
+<li><strong>WP Limit Login Attempts</strong></li>
+<li><strong>Login LockDown</strong></li>
+</ul>
+
+<strong>Configuration Recommendations:</strong>
+<ul>
+<li>Maximum 3 failed attempts</li>
+<li>20-minute lockout for first offense</li>
+<li>Increase lockout time for repeat offenses</li>
+<li>Email notifications for lockouts</li>
+</ul>
+
+<h2>Conclusion: Your WordPress Security Action Plan</h2>
+
+<p>Implementing WordPress security doesn't have to be overwhelming. Start with these priority actions:</p>
+
+<strong>Immediate Actions (This Week):</strong>
+1. ✅ Update WordPress core, plugins, and themes
+2. ✅ Install and configure a security plugin (Wordfence or Sucuri)
+3. ✅ Set up automated daily backups
+4. ✅ Enable two-factor authentication
+5. ✅ Install SSL certificate
+
+<strong>Short-term Goals (This Month):</strong>
+1. ✅ Review and strengthen all user passwords
+2. ✅ Audit user accounts and permissions
+3. ✅ Configure website firewall
+4. ✅ Set up security monitoring
+5. ✅ Test backup restoration process
+
+<strong>Ongoing Maintenance:</strong>
+<ul>
+<li>Monthly security scans and updates</li>
+<li>Quarterly user access reviews</li>
+<li>Annual security assessments</li>
+<li>Regular backup testing</li>
+</ul>
+
+<strong>Remember:</strong> WordPress security is not a one-time setup but an ongoing process. The small investment in security measures today can save you thousands in recovery costs and lost business later.
+
+<p>At Cosmos Web Tech, we help Western Sydney businesses use comprehensive WordPress security strategies. Whether you need a security audit, ongoing maintenance, or emergency support, our team is here to ensure your business website remains secure and operational.</p>
+
+<em>Need help securing your WordPress website? Contact the Cosmos Web Tech team for a comprehensive security assessment and implementation plan tailored to your business needs.</em>
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-cta">
+          <h3>Need help with your website?</h3>
+          <p>Get a free consultation and see how we can help your Western Sydney business grow online.</p>
+          <a href="/contact" class="btn btn-primary">Get Free Consultation</a>
+        </div>
+      </footer>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 50 50" fill="none"><circle cx="25" cy="10" r="3" fill="#ffffff"/><circle cx="10" cy="35" r="2.5" fill="#3b82f6"/><circle cx="40" cy="35" r="2.5" fill="#3b82f6"/><line x1="25" y1="13" x2="12" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="13" x2="38" y2="33" stroke="#ffffff" stroke-width="1.5"/><line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/></svg>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name" style="color: white;">Cosmos Web Tech</span>
+              <span class="brand-tagline">Your Digital Universe</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/web-design">Web Design</a></li>
+            <li><a href="/services/wordpress">WordPress</a></li>
+            <li><a href="/services/seo">SEO Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/demos">Demos</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>Bella Vista, NSW 2153</li>
+            <li><a href="tel:0433309677">0433 309 677</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Cosmos Web Tech. ABN: 32 164 690 751. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .blog-post {
+    padding-top: 6rem;
+  }
+
+  .post-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .post-category {
+    background: var(--grey-100);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .post-date {
+    color: var(--grey);
+    font-size: 0.875rem;
+  }
+
+  .post-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .post-excerpt {
+    font-size: 1.25rem;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  .post-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--grey-200);
+  }
+
+  .read-time {
+    color: var(--grey-light);
+    font-size: 0.9rem;
+  }
+
+  .post-featured-image {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .post-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--grey-dark);
+  }
+
+  .post-content h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    color: var(--navy-dark);
+  }
+
+  .post-content h3 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--navy-dark);
+  }
+
+  .post-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .post-content ul {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .post-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .post-content code {
+    background: var(--grey-100);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: monospace;
+  }
+
+  .post-footer {
+    max-width: 800px;
+    margin: 4rem auto 0;
+  }
+
+  .post-cta {
+    background: var(--grey-100);
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .post-cta h3 {
+    margin-bottom: 1rem;
+  }
+
+  .post-cta p {
+    color: var(--grey);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .post-content {
+      font-size: 1rem;
+    }
+
+    .post-content h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
