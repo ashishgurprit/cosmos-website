@@ -73,11 +73,46 @@ const isResourcePage = currentPath.includes('/resources');
     <!-- Cloudflare Turnstile for spam protection -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ganda Tech Services Pty Ltd",
+      "alternateName": "Cosmos Web Tech",
+      "legalName": "Ganda Tech Services Pty Ltd",
+      "url": "https://cosmoswebtech.com.au",
+      "logo": "https://cosmoswebtech.com.au/images/logo.png",
+      "foundingDate": "2015",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "608/8 Elizabeth Macarthur Drive",
+        "addressLocality": "Bella Vista",
+        "addressRegion": "NSW",
+        "postalCode": "2153",
+        "addressCountry": "AU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+61-433-309-677",
+        "contactType": "Customer Service",
+        "email": "hello@cosmoswebtech.com.au",
+        "areaServed": "AU",
+        "availableLanguage": ["English"]
+      },
+      "sameAs": [
+        "https://linkedin.com/company/cosmoswebtech",
+        "https://facebook.com/cosmoswebtech"
+      ]
+    }
+    </script>
+
     <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://cosmoswebtech.com.au/#business",
       "name": "Cosmos Web Tech",
       "description": "Professional web design, SEO and digital marketing services for Sydney businesses",
       "url": "https://cosmoswebtech.com.au",
@@ -101,13 +136,100 @@ const isResourcePage = currentPath.includes('/resources');
         {"@type": "City", "name": "Parramatta"},
         {"@type": "City", "name": "Castle Hill"},
         {"@type": "City", "name": "Blacktown"},
-        {"@type": "City", "name": "Hornsby"}
+        {"@type": "City", "name": "Hornsby"},
+        {"@type": "City", "name": "Baulkham Hills"},
+        {"@type": "City", "name": "Rouse Hill"}
       ],
       "priceRange": "$$",
       "openingHours": "Mo-Fr 09:00-18:00",
       "image": "https://cosmoswebtech.com.au/images/logo.png",
       "serviceType": ["Web Design", "Web Development", "SEO", "Google Ads", "WordPress Development"],
-      "sameAs": ["https://linkedin.com/company/cosmoswebtech", "https://facebook.com/cosmoswebtech"]
+      "sameAs": ["https://linkedin.com/company/cosmoswebtech", "https://facebook.com/cosmoswebtech"],
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "currenciesAccepted": "AUD",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "18"
+      }
+    }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Cosmos Web Tech",
+      "url": "https://cosmoswebtech.com.au",
+      "description": "Professional web design and SEO services for Sydney businesses",
+      "publisher": {
+        "@id": "https://cosmoswebtech.com.au/#business"
+      },
+      "inLanguage": "en-AU"
+    }
+    </script>
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Design and Development",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://cosmoswebtech.com.au/#business",
+        "name": "Cosmos Web Tech"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "New South Wales"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Design",
+              "description": "Custom website design for small businesses",
+              "provider": {"@id": "https://cosmoswebtech.com.au/#business"}
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "AUD",
+              "price": "3500",
+              "priceType": "https://schema.org/ListPrice"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Services",
+              "description": "Search engine optimization for local businesses",
+              "provider": {"@id": "https://cosmoswebtech.com.au/#business"}
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "WordPress Development",
+              "description": "Custom WordPress websites and e-commerce stores",
+              "provider": {"@id": "https://cosmoswebtech.com.au/#business"}
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "AUD",
+              "price": "6000",
+              "priceType": "https://schema.org/ListPrice"
+            }
+          }
+        ]
+      }
     }
     </script>
 
