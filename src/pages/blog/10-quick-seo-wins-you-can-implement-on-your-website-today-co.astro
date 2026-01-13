@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "10 Quick SEO Wins You Can Implement on Your Website Today - Cosmos Web Tech";
-const description = "Boost your website's search rankings with these 10 actionable SEO strategies. Perfect for Western Sydney SMBs looking for immediate results.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "SEO";
+export const frontmatter = {
+  title: "10 Quick SEO Wins You Can Implement on Your Website Today",
+  description: "Boost your website's search rankings with these 10 actionable SEO strategies. Perfect for Western Sydney SMBs looking for immediate results.",
+  publishedAt: "2024-10-14",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "SEO",
+  readTime: "8 min read",
+  heroImage: "/images/blog/10-quick-seo-wins-you-can-implement-on-your-website-today-co-hero.jpg",
+  contentImage: "/images/blog/10-quick-seo-wins-you-can-implement-on-your-website-today-co-content.jpg",
+  infographic: "/images/blog/10-quick-seo-wins-you-can-implement-on-your-website-today-co-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "SEO";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "SEO";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/10-quick-seo-wins-you-can-implement-on-your-website-today-co-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

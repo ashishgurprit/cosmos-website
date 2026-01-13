@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Website Hosting Explained: The Complete Guide for Australian Businesses in 2024";
-const description = "Discover the best website hosting options for Australian businesses. Compare shared, VPS, dedicated & cloud hosting with expert insights from Sydney web developers.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "website hosting";
+export const frontmatter = {
+  title: "Website Hosting Explained: The Complete Guide for Australian Businesses in 2024",
+  description: "Discover the best website hosting options for Australian businesses. Compare shared, VPS, dedicated & cloud hosting with expert insights from Sydney web developers.",
+  publishedAt: "2024-12-26",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website hosting",
+  readTime: "7 min read",
+  heroImage: "/images/blog/website-hosting-explained-the-complete-guide-for-australian--hero.jpg",
+  contentImage: "/images/blog/website-hosting-explained-the-complete-guide-for-australian--content.jpg",
+  infographic: "/images/blog/website-hosting-explained-the-complete-guide-for-australian--infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website hosting";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website hosting";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/website-hosting-explained-the-complete-guide-for-australian--1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

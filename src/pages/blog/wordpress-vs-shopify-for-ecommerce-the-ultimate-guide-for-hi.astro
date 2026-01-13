@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "WordPress vs Shopify for E-commerce: The Ultimate Guide for Hills District Retailers in 2024";
-const description = "Discover which e-commerce platform suits Hills District retailers best. Compare WordPress vs Shopify features, costs, and benefits with expert insights from Cosmos Web Tech.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "WordPress";
+export const frontmatter = {
+  title: "WordPress vs Shopify for E-commerce: The Ultimate Guide for Hills District Retailers in 2024",
+  description: "Discover which e-commerce platform suits Hills District retailers best. Compare WordPress vs Shopify features, costs, and benefits with expert insights from Cosmos Web Tech.",
+  publishedAt: "2025-01-13",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "WordPress",
+  readTime: "7 min read",
+  heroImage: "/images/blog/wordpress-vs-shopify-for-ecommerce-the-ultimate-guide-for-hi-hero.jpg",
+  contentImage: "/images/blog/wordpress-vs-shopify-for-ecommerce-the-ultimate-guide-for-hi-content.jpg",
+  infographic: "/images/blog/wordpress-vs-shopify-for-ecommerce-the-ultimate-guide-for-hi-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "WordPress";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "WordPress";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/wordpress-vs-shopify-for-ecommerce-the-ultimate-guide-for-hi-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

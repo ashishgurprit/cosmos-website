@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Professional Website Photography: DIY Tips for Bella Vista Businesses - Cosmos Web Tech";
-const description = "Learn how Bella Vista businesses can create stunning professional website photos on a budget. Expert DIY photography tips from Cosmos Web Tech team.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "website photography";
+export const frontmatter = {
+  title: "Professional Website Photography: DIY Tips for Bella Vista Businesses",
+  description: "Learn how Bella Vista businesses can create stunning professional website photos on a budget. Expert DIY photography tips from Cosmos Web Tech team.",
+  publishedAt: "2024-11-28",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website photography",
+  readTime: "8 min read",
+  heroImage: "/images/blog/professional-website-photography-diy-tips-for-bella-vista-bu-hero.jpg",
+  contentImage: "/images/blog/professional-website-photography-diy-tips-for-bella-vista-bu-content.jpg",
+  infographic: "/images/blog/professional-website-photography-diy-tips-for-bella-vista-bu-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website photography";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website photography";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/professional-website-photography-diy-tips-for-bella-vista-bu-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

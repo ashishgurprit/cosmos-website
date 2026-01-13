@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "7 DIY Website Mistakes That Are Costing Your Castle Hill Business Thousands in 2024";
-const description = "Discover the costly DIY website mistakes Castle Hill businesses make. Learn how poor design, SEO errors & security issues hurt your bottom line.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "DIY website mistakes";
+export const frontmatter = {
+  title: "7 DIY Website Mistakes That Are Costing Your Castle Hill Business Thousands in 2024",
+  description: "Discover the costly DIY website mistakes Castle Hill businesses make. Learn how poor design, SEO errors & security issues hurt your bottom line.",
+  publishedAt: "2024-10-21",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "DIY website mistakes",
+  readTime: "8 min read",
+  heroImage: "/images/blog/7-diy-website-mistakes-that-are-costing-your-castle-hill-bus-hero.jpg",
+  contentImage: "/images/blog/7-diy-website-mistakes-that-are-costing-your-castle-hill-bus-content.jpg",
+  infographic: "/images/blog/7-diy-website-mistakes-that-are-costing-your-castle-hill-bus-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "DIY website mistakes";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "DIY website mistakes";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/7-diy-website-mistakes-that-are-costing-your-castle-hill-bus-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

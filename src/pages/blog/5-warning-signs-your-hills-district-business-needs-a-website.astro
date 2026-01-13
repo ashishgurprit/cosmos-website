@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "5 Warning Signs Your Hills District Business Needs a Website Redesign in 2024";
-const description = "Is your Hills District business website driving customers away? Discover 5 critical warning signs it's time for a redesign to boost sales and stay competitive.";
-const date = "2026-01-12";
-const readTime = "9 min read";
-const category = "website redesign";
+export const frontmatter = {
+  title: "5 Warning Signs Your Hills District Business Needs a Website Redesign in 2024",
+  description: "Is your Hills District business website driving customers away? Discover 5 critical warning signs it's time for a redesign to boost sales and stay competitive.",
+  publishedAt: "2024-10-17",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website redesign",
+  readTime: "9 min read",
+  heroImage: "/images/blog/5-warning-signs-your-hills-district-business-needs-a-website-hero.jpg",
+  contentImage: "/images/blog/5-warning-signs-your-hills-district-business-needs-a-website-content.jpg",
+  infographic: "/images/blog/5-warning-signs-your-hills-district-business-needs-a-website-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website redesign";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website redesign";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/5-warning-signs-your-hills-district-business-needs-a-website-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

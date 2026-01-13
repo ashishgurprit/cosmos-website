@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Website Costs in Sydney 2025: Complete SMB Pricing Guide | Cosmos Web Tech";
-const description = "Discover real website costs in Sydney for 2025. From basic sites to e-commerce - complete pricing breakdown for SMBs. Get quotes from local experts.";
-const date = "2026-01-12";
-const readTime = "6 min read";
-const category = "website cost Sydney";
+export const frontmatter = {
+  title: "Website Costs in Sydney 2025: Complete SMB Pricing Guide | Cosmos Web Tech",
+  description: "Discover real website costs in Sydney for 2025. From basic sites to e-commerce - complete pricing breakdown for SMBs. Get quotes from local experts.",
+  publishedAt: "2024-12-23",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website cost Sydney",
+  readTime: "6 min read",
+  heroImage: "/images/blog/website-costs-in-sydney-2025-complete-smb-pricing-guide-cosm-hero.jpg",
+  contentImage: "/images/blog/website-costs-in-sydney-2025-complete-smb-pricing-guide-cosm-content.jpg",
+  infographic: "/images/blog/website-costs-in-sydney-2025-complete-smb-pricing-guide-cosm-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website cost Sydney";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website cost Sydney";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/website-costs-in-sydney-2025-complete-smb-pricing-guide-cosm-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

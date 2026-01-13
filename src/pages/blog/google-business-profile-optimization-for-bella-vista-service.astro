@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Google Business Profile Optimization for Bella Vista Service Businesses: Complete 2024 Guide";
-const description = "Master Google Business Profile optimization for your Bella Vista service business. Expert tips from Cosmos Web Tech to boost local visibility and attract more customers.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "Google Business Profile";
+export const frontmatter = {
+  title: "Google Business Profile Optimization for Bella Vista Service Businesses: Complete 2024 Guide",
+  description: "Master Google Business Profile optimization for your Bella Vista service business. Expert tips from Cosmos Web Tech to boost local visibility and attract more customers.",
+  publishedAt: "2024-11-07",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "Google Business Profile",
+  readTime: "8 min read",
+  heroImage: "/images/blog/google-business-profile-optimization-for-bella-vista-service-hero.jpg",
+  contentImage: "/images/blog/google-business-profile-optimization-for-bella-vista-service-content.jpg",
+  infographic: "/images/blog/google-business-profile-optimization-for-bella-vista-service-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "Google Business Profile";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "Google Business Profile";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/google-business-profile-optimization-for-bella-vista-service-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

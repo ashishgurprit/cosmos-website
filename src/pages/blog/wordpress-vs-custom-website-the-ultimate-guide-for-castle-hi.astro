@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "WordPress vs Custom Website: The Ultimate Guide for Castle Hill Businesses in 2024";
-const description = "Castle Hill business owners: Discover whether WordPress or a custom website is right for you. Expert insights from Cosmos Web Tech on costs, features & ROI.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "WordPress";
+export const frontmatter = {
+  title: "WordPress vs Custom Website: The Ultimate Guide for Castle Hill Businesses in 2024",
+  description: "Castle Hill business owners: Discover whether WordPress or a custom website is right for you. Expert insights from Cosmos Web Tech on costs, features & ROI.",
+  publishedAt: "2025-01-09",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "WordPress",
+  readTime: "8 min read",
+  heroImage: "/images/blog/wordpress-vs-custom-website-the-ultimate-guide-for-castle-hi-hero.jpg",
+  contentImage: "/images/blog/wordpress-vs-custom-website-the-ultimate-guide-for-castle-hi-content.jpg",
+  infographic: "/images/blog/wordpress-vs-custom-website-the-ultimate-guide-for-castle-hi-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "WordPress";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "WordPress";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/wordpress-vs-custom-website-the-ultimate-guide-for-castle-hi-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

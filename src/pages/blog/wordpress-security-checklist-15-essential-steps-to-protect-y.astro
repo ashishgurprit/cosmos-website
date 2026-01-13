@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "WordPress Security Checklist: 15 Essential Steps to Protect Your Small Business Website in 2024";
-const description = "Protect your small business WordPress site with our comprehensive security checklist. Expert tips from Western Sydney's web design specialists.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "WordPress Security";
+export const frontmatter = {
+  title: "WordPress Security Checklist: 15 Essential Steps to Protect Your Small Business Website in 2024",
+  description: "Protect your small business WordPress site with our comprehensive security checklist. Expert tips from Western Sydney's web design specialists.",
+  publishedAt: "2025-01-06",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "WordPress Security",
+  readTime: "7 min read",
+  heroImage: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-hero.jpg",
+  contentImage: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-content.jpg",
+  infographic: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "WordPress Security";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "WordPress Security";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

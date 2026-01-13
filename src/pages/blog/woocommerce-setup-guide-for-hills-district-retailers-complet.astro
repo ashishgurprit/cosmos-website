@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "WooCommerce Setup Guide for Hills District Retailers: Complete E-commerce Solution";
-const description = "Transform your Hills District retail business with our complete WooCommerce setup guide. Expert tips from Cosmos Web Tech for local e-commerce success.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "WooCommerce";
+export const frontmatter = {
+  title: "WooCommerce Setup Guide for Hills District Retailers: Complete E-commerce Solution",
+  description: "Transform your Hills District retail business with our complete WooCommerce setup guide. Expert tips from Cosmos Web Tech for local e-commerce success.",
+  publishedAt: "2025-01-02",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "WooCommerce",
+  readTime: "7 min read",
+  heroImage: "/images/blog/woocommerce-setup-guide-for-hills-district-retailers-complet-hero.jpg",
+  contentImage: "/images/blog/woocommerce-setup-guide-for-hills-district-retailers-complet-content.jpg",
+  infographic: "/images/blog/woocommerce-setup-guide-for-hills-district-retailers-complet-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "WooCommerce";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "WooCommerce";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/woocommerce-setup-guide-for-hills-district-retailers-complet-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Web Design Trends & Technologies 2025: The Complete Business Guide";
-const description = "Comprehensive guide to the latest web design trends, technologies, and platform choices for brick-and-mortar, e-commerce, and service businesses in Australia.";
-const date = "2025-01-10";
-const readTime = "15 min read";
-const category = "Web Design";
+export const frontmatter = {
+  title: "Web Design Trends & Technologies 2025: The Complete Business Guide",
+  description: "Comprehensive guide to the latest web design trends, technologies, and platform choices for brick-and-mortar, e-commerce, and service businesses in Australia.",
+  publishedAt: "2024-12-09",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "Web Design",
+  readTime: "15 min read",
+  heroImage: "/images/blog/web-design-trends-2025-complete-guide-hero.jpg",
+  contentImage: "/images/blog/web-design-trends-2025-complete-guide-content.jpg",
+  infographic: "/images/blog/web-design-trends-2025-complete-guide-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -48,7 +60,7 @@ const category = "Web Design";
       <div class="container">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
           <span class="post-read-time">{readTime}</span>
         </div>
         <h1>{title}</h1>

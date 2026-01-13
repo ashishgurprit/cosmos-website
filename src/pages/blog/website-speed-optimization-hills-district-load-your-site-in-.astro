@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Website Speed Optimization Hills District: Load Your Site in Under 2 Seconds";
-const description = "Boost your Hills District business with lightning-fast website speed optimization. Expert tips from Cosmos Web Tech to achieve sub-2-second load times.";
-const date = "2026-01-12";
-const readTime = "8 min read";
-const category = "website speed optimization";
+export const frontmatter = {
+  title: "Website Speed Optimization Hills District: Load Your Site in Under 2 Seconds",
+  description: "Boost your Hills District business with lightning-fast website speed optimization. Expert tips from Cosmos Web Tech to achieve sub-2-second load times.",
+  publishedAt: "2024-12-30",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website speed optimization",
+  readTime: "8 min read",
+  heroImage: "/images/blog/website-speed-optimization-hills-district-load-your-site-in--hero.jpg",
+  contentImage: "/images/blog/website-speed-optimization-hills-district-load-your-site-in--content.jpg",
+  infographic: "/images/blog/website-speed-optimization-hills-district-load-your-site-in--infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website speed optimization";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website speed optimization";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/website-speed-optimization-hills-district-load-your-site-in--1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

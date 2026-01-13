@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Website Analytics Simplified: A Western Sydney Business Owner's Guide to Understanding Visitor Behavior";
-const description = "Learn how to decode your website analytics and understand what your visitors are really doing. Essential insights for Western Sydney SMBs to boost conversions.";
-const date = "2026-01-12";
-const readTime = "9 min read";
-const category = "website analytics";
+export const frontmatter = {
+  title: "Website Analytics Simplified: A Western Sydney Business Owner's Guide to Understanding Visitor Behavior",
+  description: "Learn how to decode your website analytics and understand what your visitors are really doing. Essential insights for Western Sydney SMBs to boost conversions.",
+  publishedAt: "2024-12-19",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "website analytics",
+  readTime: "9 min read",
+  heroImage: "/images/blog/website-analytics-simplified-a-western-sydney-business-owner-hero.jpg",
+  contentImage: "/images/blog/website-analytics-simplified-a-western-sydney-business-owner-content.jpg",
+  infographic: "/images/blog/website-analytics-simplified-a-western-sydney-business-owner-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "website analytics";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "website analytics";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/website-analytics-simplified-a-western-sydney-business-owner-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

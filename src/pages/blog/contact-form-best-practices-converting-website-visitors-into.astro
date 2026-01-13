@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Contact Form Best Practices: Converting Website Visitors into Quality Leads";
-const description = "Learn proven contact form best practices to convert more website visitors into leads. Discover design tips, field optimization & strategies from Western Sydney web experts.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "contact forms";
+export const frontmatter = {
+  title: "Contact Form Best Practices: Converting Website Visitors into Quality Leads",
+  description: "Learn proven contact form best practices to convert more website visitors into leads. Discover design tips, field optimization & strategies from Western Sydney web experts.",
+  publishedAt: "2024-11-04",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "contact forms",
+  readTime: "7 min read",
+  heroImage: "/images/blog/contact-form-best-practices-converting-website-visitors-into-hero.jpg",
+  contentImage: "/images/blog/contact-form-best-practices-converting-website-visitors-into-content.jpg",
+  infographic: "/images/blog/contact-form-best-practices-converting-website-visitors-into-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "contact forms";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "contact forms";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/contact-form-best-practices-converting-website-visitors-into-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

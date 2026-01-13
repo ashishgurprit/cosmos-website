@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Schema Markup for Local Businesses: Dominate Hills District Search Rankings in 2024";
-const description = "Boost your Hills District business visibility with schema markup. Learn how structured data improves local SEO rankings and drives more customers to your door.";
-const date = "2026-01-12";
-const readTime = "9 min read";
-const category = "schema markup";
+export const frontmatter = {
+  title: "Schema Markup for Local Businesses: Dominate Hills District Search Rankings in 2024",
+  description: "Boost your Hills District business visibility with schema markup. Learn how structured data improves local SEO rankings and drives more customers to your door.",
+  publishedAt: "2024-12-02",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "schema markup",
+  readTime: "9 min read",
+  heroImage: "/images/blog/schema-markup-for-local-businesses-dominate-hills-district-s-hero.jpg",
+  contentImage: "/images/blog/schema-markup-for-local-businesses-dominate-hills-district-s-content.jpg",
+  infographic: "/images/blog/schema-markup-for-local-businesses-dominate-hills-district-s-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "schema markup";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "schema markup";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/schema-markup-for-local-businesses-dominate-hills-district-s-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

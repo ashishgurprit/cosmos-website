@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "7 Essential WordPress Plugins for Australian Small Business Websites in 2024";
-const description = "Discover the must-have WordPress plugins for Australian small businesses. Boost your website's performance, SEO, and conversions with these expert-recommended tools.";
-const date = "2026-01-12";
-const readTime = "6 min read";
-const category = "WordPress plugins";
+export const frontmatter = {
+  title: "7 Essential WordPress Plugins for Australian Small Business Websites in 2024",
+  description: "Discover the must-have WordPress plugins for Australian small businesses. Boost your website's performance, SEO, and conversions with these expert-recommended tools.",
+  publishedAt: "2024-10-24",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "WordPress plugins",
+  readTime: "6 min read",
+  heroImage: "/images/blog/7-essential-wordpress-plugins-for-australian-small-business--hero.jpg",
+  contentImage: "/images/blog/7-essential-wordpress-plugins-for-australian-small-business--content.jpg",
+  infographic: "/images/blog/7-essential-wordpress-plugins-for-australian-small-business--infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "WordPress plugins";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "WordPress plugins";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/7-essential-wordpress-plugins-for-australian-small-business--1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

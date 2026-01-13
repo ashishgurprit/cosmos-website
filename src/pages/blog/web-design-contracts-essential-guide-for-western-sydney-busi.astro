@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Web Design Contracts: Essential Guide for Western Sydney Business Owners";
-const description = "Learn what to expect in web design contracts. Expert insights on scope, timelines, payments & legal terms for Western Sydney SMBs hiring designers.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "web-design-contracts";
+export const frontmatter = {
+  title: "Web Design Contracts: Essential Guide for Western Sydney Business Owners",
+  description: "Learn what to expect in web design contracts. Expert insights on scope, timelines, payments & legal terms for Western Sydney SMBs hiring designers.",
+  publishedAt: "2024-12-05",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "web-design-contracts",
+  readTime: "7 min read",
+  heroImage: "/images/blog/web-design-contracts-essential-guide-for-western-sydney-busi-hero.jpg",
+  contentImage: "/images/blog/web-design-contracts-essential-guide-for-western-sydney-busi-content.jpg",
+  infographic: "/images/blog/web-design-contracts-essential-guide-for-western-sydney-busi-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "web-design-contracts";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "web-design-contracts";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/web-design-contracts-essential-guide-for-western-sydney-busi-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "How a Western Sydney Restaurant Increased Online Orders by 200% with Strategic Web Design";
-const description = "Discover how Cosmos Web Tech helped a local restaurant boost online orders by 200% through strategic web design, mobile optimization, and smart SEO.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "restaurant web design";
+export const frontmatter = {
+  title: "How a Western Sydney Restaurant Increased Online Orders by 200% with Strategic Web Design",
+  description: "Discover how Cosmos Web Tech helped a local restaurant boost online orders by 200% through strategic web design, mobile optimization, and smart SEO.",
+  publishedAt: "2024-11-11",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "restaurant web design",
+  readTime: "7 min read",
+  heroImage: "/images/blog/how-a-western-sydney-restaurant-increased-online-orders-by-2-hero.jpg",
+  contentImage: "/images/blog/how-a-western-sydney-restaurant-increased-online-orders-by-2-content.jpg",
+  infographic: "/images/blog/how-a-western-sydney-restaurant-increased-online-orders-by-2-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "restaurant web design";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "restaurant web design";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/how-a-western-sydney-restaurant-increased-online-orders-by-2-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

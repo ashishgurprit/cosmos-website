@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Mobile-First Design: The Game-Changer for Western Sydney Business Success";
-const description = "Discover why mobile-first design is crucial for Western Sydney businesses. Learn strategies to boost conversions, improve SEO rankings & reach more customers.";
-const date = "2026-01-12";
-const readTime = "7 min read";
-const category = "mobile-first design";
+export const frontmatter = {
+  title: "Mobile-First Design: The Game-Changer for Western Sydney Business Success",
+  description: "Discover why mobile-first design is crucial for Western Sydney businesses. Learn strategies to boost conversions, improve SEO rankings & reach more customers.",
+  publishedAt: "2024-11-25",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "mobile-first design",
+  readTime: "7 min read",
+  heroImage: "/images/blog/mobilefirst-design-the-gamechanger-for-western-sydney-busine-hero.jpg",
+  contentImage: "/images/blog/mobilefirst-design-the-gamechanger-for-western-sydney-busine-content.jpg",
+  infographic: "/images/blog/mobilefirst-design-the-gamechanger-for-western-sydney-busine-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "mobile-first design";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "mobile-first design";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/mobilefirst-design-the-gamechanger-for-western-sydney-busine-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

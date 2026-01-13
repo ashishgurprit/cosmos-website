@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Case Study: How a Medical Practice Website Generated 50+ Monthly Patient Bookings";
-const description = "Discover how Cosmos Web Tech transformed a Western Sydney medical practice website to generate 50+ monthly bookings through strategic design and SEO.";
-const date = "2026-01-12";
-const readTime = "6 min read";
-const category = "medical website design";
+export const frontmatter = {
+  title: "Case Study: How a Medical Practice Website Generated 50+ Monthly Patient Bookings",
+  description: "Discover how Cosmos Web Tech transformed a Western Sydney medical practice website to generate 50+ monthly bookings through strategic design and SEO.",
+  publishedAt: "2024-10-31",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "medical website design",
+  readTime: "6 min read",
+  heroImage: "/images/blog/case-study-how-a-medical-practice-website-generated-50-month-hero.jpg",
+  contentImage: "/images/blog/case-study-how-a-medical-practice-website-generated-50-month-content.jpg",
+  infographic: "/images/blog/case-study-how-a-medical-practice-website-generated-50-month-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "medical website design";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "medical website design";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/case-study-how-a-medical-practice-website-generated-50-month-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">

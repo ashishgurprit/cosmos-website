@@ -1,12 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Web Design Trends 2025: Future-Ready Strategies for Western Sydney Businesses";
-const description = "Discover the top web design trends for 2025 that Western Sydney businesses need to adopt. From AI integration to micro-interactions - stay ahead.";
-const date = "2026-01-12";
-const readTime = "9 min read";
-const category = "web design trends";
+export const frontmatter = {
+  title: "Web Design Trends 2025: Future-Ready Strategies for Western Sydney Businesses",
+  description: "Discover the top web design trends for 2025 that Western Sydney businesses need to adopt. From AI integration to micro-interactions - stay ahead.",
+  publishedAt: "2024-12-12",
+  author: "Ashish Ganda",
+  authorTitle: "Founder, Cosmos Web Tech",
+  category: "web design trends",
+  readTime: "9 min read",
+  heroImage: "/images/blog/web-design-trends-2025-futureready-strategies-for-western-sy-hero.jpg",
+  contentImage: "/images/blog/web-design-trends-2025-futureready-strategies-for-western-sy-content.jpg",
+  infographic: "/images/blog/web-design-trends-2025-futureready-strategies-for-western-sy-infographic.jpg"
+};
+
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
+
+
+
 
 <Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
   <header class="header">
@@ -53,7 +65,7 @@ const category = "web design trends";
       <header class="post-header">
         <div class="post-meta">
           <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h1>{title}</h1>
         <p class="post-excerpt">{description}</p>
@@ -63,7 +75,7 @@ const category = "web design trends";
       </header>
 
       <div class="post-featured-image">
-        <img src="/images/blog/web-design-trends-2025-futureready-strategies-for-western-sy-1.jpg" alt="{title}" />
+        <img src="{heroImage}" alt="{title}" />
       </div>
 
       <div class="post-content">
