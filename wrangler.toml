@@ -5,5 +5,5 @@ pages_build_output_dir = "dist"
 
 # Environment variables
 [vars]
-# GitHub OAuth for Decap CMS - Add your Client ID here
-# GITHUB_CLIENT_ID = "your_github_oauth_client_id"
+# GitHub OAuth for Decap CMS
+GITHUB_CLIENT_ID = "Ov23lirC8hXveHe1IKFt"
