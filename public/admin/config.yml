@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: ashishganda/cosmos-website # Replace with your GitHub repo
+  repo: ashishganda/cosmos-website
   branch: main
-  base_url: https://cosmoswebtech.com.au # Your domain
+  base_url: https://cosmoswebtech.com.au
   auth_endpoint: /api/auth
 
-# Local backend for development
+# Local backend for development (use this for editing)
 local_backend: true
 
 media_folder: "public/images/blog"
