@@ -278,12 +278,11 @@ Use 2FA for all user accounts, especially administrators. Recommended plugins in
 </ul>
 
 <strong>Database Hardening Steps:</strong>
-``<code>
-// Add to wp-config.php
+
+<pre><code>{`// Add to wp-config.php
 define('DISALLOW_FILE_EDIT', true);
 define('WP_DEBUG', false);
-define('FORCE_SSL_ADMIN', true);
-</code>`<code>
+define('FORCE_SSL_ADMIN', true);`}</code></pre>
 
 <h2>WordPress-Specific Security Hardening</h2>
 
@@ -292,54 +291,50 @@ define('FORCE_SSL_ADMIN', true);
 <p>The wp-config.php file contains sensitive database information and should be heavily protected.</p>
 
 <strong>wp-config.php Security Enhancements:</strong>
-</code>`<code>php
-// Security keys (generate unique keys)
+
+<pre><code>{`// Security keys (generate unique keys)
 define('AUTH_KEY', 'your-unique-key-here');
 // ... other keys
 
-<p>// Disable file editing
-define('DISALLOW_FILE_EDIT', true);</p>
+// Disable file editing
+define('DISALLOW_FILE_EDIT', true);
 
-<p>// Force SSL for admin
-define('FORCE_SSL_ADMIN', true);</p>
+// Force SSL for admin
+define('FORCE_SSL_ADMIN', true);
 
-<p>// Limit login attempts
-define('WP_LOGIN_ATTEMPTS', 3);
-</code>`<code></p>
+// Limit login attempts
+define('WP_LOGIN_ATTEMPTS', 3);`}</code></pre>
 
 <h3>.htaccess Security Rules</h3>
 
 <p>Add these security rules to your .htaccess file:</p>
 
-</code>`<code>apache
-<h1>Protect wp-config.php</h1>
+<pre><code>{`# Protect wp-config.php
 <files wp-config.php>
 order allow,deny
 deny from all
 </files>
 
-<h1>Disable directory browsing</h1>
+# Disable directory browsing
 Options -Indexes
 
-<h1>Protect against script injections</h1>
+# Protect against script injections
 RewriteEngine On
-RewriteCond %{QUERY_STRING} (<|%3C).<em>script.</em>(>|%3E) [NC,OR]
-RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
-RewriteRule ^(.*)$ index.php [F,L]
-</code>`<code>
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\\[|\\%[0-9A-Z]{0,2}) [OR]
+RewriteRule ^(.*)$ index.php [F,L]`}</code></pre>
 
 <h3>Hide WordPress Version Information</h3>
 
 <p>Prevent attackers from identifying your WordPress version:</p>
 
-</code>`<code>php
-// Add to functions.php
+<pre><code>{`// Add to functions.php
 function remove_wp_version() {
     return '';
 }
 add_filter('the_generator', 'remove_wp_version');
 
-<p>// Remove version from scripts and styles
+// Remove version from scripts and styles
 function remove_version_scripts_styles($src) {
     if (strpos($src, 'ver=')) {
         $src = remove_query_arg('ver', $src);
@@ -347,8 +342,7 @@ function remove_version_scripts_styles($src) {
     return $src;
 }
 add_filter('style_loader_src', 'remove_version_scripts_styles');
-add_filter('script_loader_src', 'remove_version_scripts_styles');
-</code>``</p>
+add_filter('script_loader_src', 'remove_version_scripts_styles');`}</code></pre>
 
 <h3>Limit Login Attempts</h3>
 
