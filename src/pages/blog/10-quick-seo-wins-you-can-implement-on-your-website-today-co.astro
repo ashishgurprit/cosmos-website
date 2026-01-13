@@ -1,5 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+
+import BlogLayout from '../../layouts/BlogLayout.astro';
 
 export const frontmatter = {
   title: "10 Quick SEO Wins You Can Implement on Your Website Today",
@@ -17,69 +18,17 @@ export const frontmatter = {
 const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
 ---
 
-
-
-
-<Layout title={`${title} | Cosmos Web Tech Blog`} description={description}>
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="/" class="logo">
-          <div class="logo-icon">
-            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="25" cy="10" r="3" fill="#1e3a5f"/>
-              <circle cx="10" cy="35" r="2.5" fill="#3b82f6"/>
-              <circle cx="40" cy="35" r="2.5" fill="#3b82f6"/>
-              <circle cx="25" cy="42" r="2" fill="#64748b"/>
-              <line x1="25" y1="13" x2="12" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
-              <line x1="25" y1="13" x2="38" y2="33" stroke="#1e3a5f" stroke-width="1.5"/>
-              <line x1="12" y1="35" x2="38" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="logo-text">
-            <span class="brand-name">Cosmos Web Tech</span>
-            <span class="brand-tagline">Your Digital Universe</span>
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/demos">Demos</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/resources">Resources</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact" class="btn btn-primary btn-small">Get Quote</a></li>
-        </ul>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <article class="blog-post">
-    <div class="container">
-      <header class="post-header">
-        <div class="post-meta">
-          <span class="post-category">{category}</span>
-          <span class="post-date">{new Date(publishedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
-        </div>
-        <h1>{title}</h1>
-        <p class="post-excerpt">{description}</p>
-        <div class="post-info">
-          <span class="read-time">{readTime}</span>
-        </div>
-      </header>
-
-      <div class="post-featured-image">
-        <img src="{heroImage}" alt="{title}" />
-      </div>
-
-      <div class="post-content">
-        <h1>10 Quick SEO Wins You Can Use on Your Website Today</h1>
+<BlogLayout
+  title={`${title} | Cosmos Web Tech Blog`}
+  description={description}
+  publishedAt={publishedAt}
+  author={author}
+  authorTitle={authorTitle}
+  category={category}
+  readTime={readTime}
+  heroImage={heroImage}
+>
+<h1>10 Quick SEO Wins You Can Use on Your Website Today</h1>
 
 <p>Searching for ways to improve your website's visibility without breaking the bank or waiting months for results? You're in the right place. As the Cosmos Web Tech team has discovered through years of helping Western Sydney small and medium businesses grow online, some of the most impactful SEO improvements can be implemented in just a few hours.</p>
 
@@ -477,3 +426,4 @@ Define what success looks like for your business and set up corresponding goals 
     }
   }
 </style>
+</BlogLayout>
