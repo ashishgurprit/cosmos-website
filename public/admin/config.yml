@@ -5,7 +5,6 @@ backend:
   base_url: https://cosmoswebtech.com.au
   auth_endpoint: /api/auth
 
-# Local backend for development (use this for editing)
 local_backend: true
 
 media_folder: "public/images/blog"
@@ -26,14 +25,55 @@ collections:
     identifier_field: "title"
     summary: "{{title}} - {{publishedAt}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Publish Date", name: "publishedAt", widget: "datetime", format: "YYYY-MM-DD", default: "" }
-      - { label: "Author", name: "author", widget: "string", default: "Ashish Ganda" }
-      - { label: "Author Title", name: "authorTitle", widget: "string", default: "Founder, Cosmos Web Tech" }
-      - { label: "Category", name: "category", widget: "select", options: ["Web Design", "SEO", "WordPress", "E-commerce", "Digital Marketing"], default: "Web Design" }
-      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
-      - { label: "Hero Image", name: "heroImage", widget: "image", required: false, hint: "Featured image for blog post" }
-      - { label: "Content Image", name: "contentImage", widget: "image", required: false, hint: "Image for article content" }
-      - { label: "Infographic", name: "infographic", widget: "image", required: false, hint: "Optional infographic" }
-      - { label: "Body", name: "body", widget: "markdown", hint: "Blog post content in Markdown format" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+      - label: "Publish Date"
+        name: "publishedAt"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        default: ""
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Ashish Ganda"
+      - label: "Author Title"
+        name: "authorTitle"
+        widget: "string"
+        default: "Founder, Cosmos Web Tech"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Web Design"
+          - "SEO"
+          - "WordPress"
+          - "E-commerce"
+          - "Digital Marketing"
+        default: "Web Design"
+      - label: "Read Time"
+        name: "readTime"
+        widget: "string"
+        default: "5 min read"
+      - label: "Hero Image"
+        name: "heroImage"
+        widget: "image"
+        required: false
+        hint: "Featured image for blog post"
+      - label: "Content Image"
+        name: "contentImage"
+        widget: "image"
+        required: false
+        hint: "Image for article content"
+      - label: "Infographic"
+        name: "infographic"
+        widget: "image"
+        required: false
+        hint: "Optional infographic"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Blog post content in Markdown format"
