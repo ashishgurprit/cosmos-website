@@ -103,6 +103,11 @@
   function saveConsent(preferences) {
     setCookie(COOKIE_NAME, JSON.stringify(preferences), COOKIE_EXPIRY);
     applyConsent(preferences);
+
+    // Dispatch custom event for third-party scripts to listen
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged', {
+      detail: preferences
+    }));
   }
 
   function applyConsent(preferences) {
@@ -123,24 +128,8 @@
       }
     }
 
-    // Apply marketing consent
-    if (preferences.marketing) {
-      // Enable Mautic tracking
-      if (typeof mt !== 'undefined') {
-        // Mautic tracking continues
-      }
-    } else {
-      // Disable Mautic tracking
-      if (typeof mt !== 'undefined') {
-        // Stop Mautic tracking (would need custom implementation)
-      }
-    }
-
-    // Apply functional consent
-    if (preferences.functional) {
-      // Enable Gist chat
-      // Gist loads separately
-    }
+    // Marketing and functional consent handled by third-party scripts
+    // listening to 'cookieConsentChanged' event
 
     // Hide banner
     document.getElementById('cookie-consent')?.classList.add('hidden');

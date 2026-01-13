@@ -71,7 +71,6 @@ const isResourcePage = currentPath.includes('/resources');
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9NFCBVPD6"></script>
 
     <!-- Preconnect to third-party domains for performance -->
-    <link rel="preconnect" href="https://mautic.cloudgeeks.com.au" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
 
@@ -374,18 +373,112 @@ const isResourcePage = currentPath.includes('/resources');
     </div>
     )}
 
-    <!-- Mautic Tracking -->
+    <!-- Mautic Tracking (loaded only with marketing cookie consent) -->
     <script define:vars={{ MAUTIC_URL }}>
-      (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
-          w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
-          m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
-      })(window,document,'script',MAUTIC_URL + '/mtc.js','mt');
-      mt('send', 'pageview');
+      function loadMauticTracking() {
+        if (typeof window.mt !== 'undefined') return; // Already loaded
+
+        (function(w,d,t,u,n,a,m){
+          w['MauticTrackingObject']=n;
+          w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
+          a=d.createElement(t);
+          m=d.getElementsByTagName(t)[0];
+          a.async=1;
+          a.src=u;
+          a.onerror = function() {
+            console.warn('Mautic tracking script failed to load');
+          };
+          m.parentNode.insertBefore(a,m);
+        })(window,document,'script',MAUTIC_URL + '/mtc.js','mt');
+
+        // Send pageview after script loads
+        if (typeof window.mt !== 'undefined') {
+          mt('send', 'pageview');
+        }
+      }
+
+      // Check cookie consent and load Mautic if marketing cookies accepted
+      function checkMauticConsent() {
+        const consent = document.cookie.split(';').find(c => c.trim().startsWith('cookie_consent='));
+        if (consent) {
+          try {
+            const prefs = JSON.parse(decodeURIComponent(consent.split('=')[1]));
+            if (prefs.marketing) {
+              loadMauticTracking();
+            }
+          } catch(e) {
+            console.error('Error parsing cookie consent for Mautic:', e);
+          }
+        }
+      }
+
+      // Check on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkMauticConsent);
+      } else {
+        checkMauticConsent();
+      }
+
+      // Listen for consent changes
+      window.addEventListener('cookieConsentChanged', checkMauticConsent);
     </script>
 
-    <!-- Gist Live Chat -->
+    <!-- Gist Live Chat (loaded only with functional cookie consent) -->
     <script is:inline>
-      (function(d,h,w){var gist=w.gist=w.gist||[];gist.methods=['trackPageView','identify','track','setAppId'];gist.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);gist.push(e);return gist;}};for(var i=0;i<gist.methods.length;i++){var c=gist.methods[i];gist[c]=gist.factory(c)}s=d.createElement('script'),s.src="https://widget.getgist.com",s.async=!0,e=d.getElementsByTagName(h)[0],e.appendChild(s),s.addEventListener('load',function(e){},!1),gist.setAppId("4ag9jnty"),gist.trackPageView()})(document,'head',window);
+      // Load Gist only if functional cookies are accepted
+      function loadGistChat() {
+        if (typeof window.gist !== 'undefined') return; // Already loaded
+
+        (function(d,h,w){
+          var gist=w.gist=w.gist||[];
+          gist.methods=['trackPageView','identify','track','setAppId'];
+          gist.factory=function(t){
+            return function(){
+              var e=Array.prototype.slice.call(arguments);
+              e.unshift(t);
+              gist.push(e);
+              return gist;
+            }
+          };
+          for(var i=0;i<gist.methods.length;i++){
+            var c=gist.methods[i];
+            gist[c]=gist.factory(c);
+          }
+          var s=d.createElement('script');
+          s.src="https://widget.getgist.com";
+          s.async=true;
+          var e=d.getElementsByTagName(h)[0];
+          e.appendChild(s);
+          s.addEventListener('load',function(e){},false);
+          gist.setAppId("4ag9jnty");
+          gist.trackPageView();
+        })(document,'head',window);
+      }
+
+      // Check cookie consent and load Gist if functional cookies accepted
+      function checkGistConsent() {
+        const consent = document.cookie.split(';').find(c => c.trim().startsWith('cookie_consent='));
+        if (consent) {
+          try {
+            const prefs = JSON.parse(decodeURIComponent(consent.split('=')[1]));
+            if (prefs.functional) {
+              loadGistChat();
+            }
+          } catch(e) {
+            console.error('Error parsing cookie consent for Gist:', e);
+          }
+        }
+      }
+
+      // Check on page load and after consent changes
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkGistConsent);
+      } else {
+        checkGistConsent();
+      }
+
+      // Listen for consent changes
+      window.addEventListener('cookieConsentChanged', checkGistConsent);
     </script>
 
     <!-- Header scroll effect & Mobile menu -->
@@ -590,6 +683,4 @@ const isResourcePage = currentPath.includes('/resources');
   </body>
 </html>
 
-<style is:global>
-  @import '../styles/global.css';
-</style>
+<style is:global src="../styles/global.css"></style>
