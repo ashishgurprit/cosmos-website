@@ -1,72 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-// Sample blog posts - in production, these would come from a CMS or markdown files
-const posts = [
-  {
-    slug: "web-design-trends-2025-complete-guide",
-    title: "Web Design Trends & Technologies 2025: The Complete Business Guide",
-    excerpt: "Comprehensive guide to the latest web design trends, technologies, and platform recommendations for brick-and-mortar, e-commerce, and service businesses.",
-    category: "Web Design",
-    date: "2025-01-10",
-    readTime: "15 min read",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "how-much-does-a-website-cost-australia",
-    title: "How Much Does a Website Cost in Australia? (2025 Guide)",
-    excerpt: "A comprehensive breakdown of website costs for Australian businesses, from simple sites to complex e-commerce stores.",
-    category: "Web Design",
-    date: "2025-01-08",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "local-seo-tips-sydney-businesses",
-    title: "Local SEO Tips for Sydney Businesses",
-    excerpt: "Essential local SEO strategies to help your Hills District business rank higher in Google's local search results.",
-    category: "SEO",
-    date: "2024-01-10",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "wordpress-vs-custom-website",
-    title: "WordPress vs Custom Website: Which is Right for You?",
-    excerpt: "A detailed comparison to help you decide between WordPress and a custom-built website for your business.",
-    category: "WordPress",
-    date: "2024-01-05",
-    readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "10-signs-website-needs-redesign",
-    title: "10 Signs Your Website Needs a Redesign",
-    excerpt: "Is your website hurting your business? Here are the warning signs that it's time for a refresh.",
-    category: "Web Design",
-    date: "2023-12-20",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "google-ads-small-business-guide",
-    title: "Google Ads for Small Business: Getting Started",
-    excerpt: "A beginner's guide to running profitable Google Ads campaigns for your small business.",
-    category: "Digital Marketing",
-    date: "2023-12-15",
-    readTime: "10 min read",
-    image: "https://images.unsplash.com/photo-1553895501-af9e282e7fc1?w=600&h=400&fit=crop"
-  },
-  {
-    slug: "mobile-friendly-website-importance",
-    title: "Why Your Business Needs a Mobile-Friendly Website",
-    excerpt: "Over 60% of web traffic comes from mobile. Here's why mobile optimization is crucial for your business.",
-    category: "Web Design",
-    date: "2023-12-10",
-    readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
-  }
-];
+// Dynamically load all blog posts from the directory
+const allPosts = await Astro.glob('./*.astro');
+
+// Filter out index.astro and extract metadata
+const posts = allPosts
+  .filter(post => !post.file.includes('index.astro'))
+  .map(post => {
+    const frontmatter = post.frontmatter || {};
+    const slug = post.file.split('/').pop()?.replace('.astro', '') || '';
+
+    return {
+      slug,
+      title: frontmatter.title || 'Untitled',
+      excerpt: frontmatter.description || frontmatter.excerpt || '',
+      category: frontmatter.category || 'Web Design',
+      date: frontmatter.publishedAt || frontmatter.date || '2025-01-13',
+      readTime: frontmatter.readTime || '5 min read',
+      image: frontmatter.heroImage || `https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop`
+    };
+  })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by date, newest first
 
 const categories = ["All", "Web Design", "SEO", "WordPress", "E-commerce", "Digital Marketing"];
 ---
