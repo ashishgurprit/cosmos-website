@@ -1,5 +1,6 @@
 ---
 import CookieConsent from '../components/CookieConsent.astro';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -682,5 +683,3 @@ const isResourcePage = currentPath.includes('/resources');
     <CookieConsent />
   </body>
 </html>
-
-<style is:global src="../styles/global.css"></style>

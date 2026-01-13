@@ -158,48 +158,73 @@ const {
   .post-content {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.125rem;
-    line-height: 1.8;
+    font-size: 1.0625rem;
+    line-height: 1.7;
     color: var(--grey-dark);
   }
 
   .post-content h1 {
-    font-size: 2.5rem;
-    margin: 2.5rem 0 1.5rem;
+    font-size: 1.875rem; /* 30px - much more reasonable */
+    margin: 2rem 0 1.25rem;
     color: var(--navy-dark);
-    line-height: 1.2;
+    line-height: 1.3;
+  }
+
+  .post-content h1:first-child {
+    margin-top: 0;
   }
 
   .post-content h2 {
-    font-size: 2rem;
-    margin: 2rem 0 1rem;
+    font-size: 1.625rem; /* 26px - better hierarchy */
+    margin: 3rem 0 1rem; /* More space above h2 */
     color: var(--navy-dark);
+    line-height: 1.3;
   }
 
   .post-content h3 {
-    font-size: 1.5rem;
-    margin: 1.75rem 0 0.875rem;
+    font-size: 1.375rem; /* 22px - better proportion */
+    margin: 2.5rem 0 0.875rem; /* More space above h3 */
     color: var(--navy);
+    line-height: 1.4;
+  }
+
+  /* Less space when headings follow each other */
+  .post-content h2 + h3 {
+    margin-top: 1.5rem;
+  }
+
+  .post-content h3 + h4 {
+    margin-top: 1.25rem;
   }
 
   .post-content h4 {
-    font-size: 1.25rem;
-    margin: 1.5rem 0 0.75rem;
+    font-size: 1.125rem; /* 18px */
+    margin: 2rem 0 0.75rem;
     color: var(--navy);
+    line-height: 1.4;
   }
 
   .post-content p {
-    margin: 1.25rem 0;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .post-content strong {
+    font-weight: 600;
+    color: var(--navy-dark);
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .post-content ul,
   .post-content ol {
-    margin: 1.25rem 0;
-    padding-left: 2rem;
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.75rem;
   }
 
   .post-content li {
-    margin: 0.75rem 0;
+    margin: 0.5rem 0;
+    line-height: 1.7;
   }
 
   .post-content a {
@@ -259,15 +284,27 @@ const {
     }
 
     .post-content h1 {
-      font-size: 2rem;
+      font-size: 1.625rem; /* 26px on mobile */
+      margin-top: 1.5rem;
     }
 
     .post-content h2 {
-      font-size: 1.5rem;
+      font-size: 1.375rem; /* 22px on mobile */
+      margin-top: 2rem;
     }
 
     .post-content h3 {
-      font-size: 1.25rem;
+      font-size: 1.125rem; /* 18px on mobile */
+      margin-top: 1.5rem;
+    }
+
+    .post-content h4 {
+      font-size: 1rem; /* 16px on mobile */
+    }
+
+    .post-content ul,
+    .post-content ol {
+      padding-left: 1.25rem;
     }
   }
 </style>
