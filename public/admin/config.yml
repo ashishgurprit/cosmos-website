@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ashishganda/cosmos-website
+  repo: ashishgurprit/cosmos-website
   branch: main
   base_url: https://cosmoswebtech.com.au
   auth_endpoint: /api/auth
