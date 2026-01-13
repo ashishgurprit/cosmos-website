@@ -23,6 +23,8 @@ collections:
     slug: "{{slug}}"
     extension: "astro"
     format: "frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} - {{publishedAt}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
