@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: ashishganda/cosmos-website # Replace with your GitHub repo
+  branch: main
+  base_url: https://cosmoswebtech.com.au # Your domain
+  auth_endpoint: /api/auth
+
+# Local backend for development
+local_backend: true
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+site_url: https://cosmoswebtech.com.au
+display_url: https://cosmoswebtech.com.au
+logo_url: https://cosmoswebtech.com.au/images/logo.png
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/pages/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "astro"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "publishedAt", widget: "datetime", format: "YYYY-MM-DD", default: "" }
+      - { label: "Author", name: "author", widget: "string", default: "Ashish Ganda" }
+      - { label: "Author Title", name: "authorTitle", widget: "string", default: "Founder, Cosmos Web Tech" }
+      - { label: "Category", name: "category", widget: "select", options: ["Web Design", "SEO", "WordPress", "E-commerce", "Digital Marketing"], default: "Web Design" }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false, hint: "Featured image for blog post" }
+      - { label: "Content Image", name: "contentImage", widget: "image", required: false, hint: "Image for article content" }
+      - { label: "Infographic", name: "infographic", widget: "image", required: false, hint: "Optional infographic" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Blog post content in Markdown format" }
