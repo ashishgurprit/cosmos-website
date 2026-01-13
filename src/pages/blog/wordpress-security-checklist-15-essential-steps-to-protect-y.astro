@@ -12,11 +12,10 @@ export const frontmatter = {
   category: "WordPress Security",
   readTime: "7 min read",
   heroImage: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-hero.jpg",
-  contentImage: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-content.jpg",
   infographic: "/images/blog/wordpress-security-checklist-15-essential-steps-to-protect-y-infographic.jpg"
 };
 
-const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, contentImage, infographic } = frontmatter;
+const { title, description, publishedAt, author, authorTitle, category, readTime, heroImage, infographic } = frontmatter;
 ---
 
 <BlogLayout
@@ -327,6 +326,8 @@ add_filter('script_loader_src', 'remove_version_scripts_styles');`}</code></pre>
 </ul>
 
 <h2>Conclusion: Your WordPress Security Action Plan</h2>
+
+<img src={infographic} alt="WordPress Security Checklist - 15 Essential Steps with priority levels" style="width: 100%; max-width: 800px; height: auto; margin: 3rem auto; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
 
 <p>Implementing WordPress security doesn't have to be overwhelming. Start with these priority actions:</p>
 
