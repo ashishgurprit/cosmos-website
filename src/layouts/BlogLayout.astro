@@ -218,8 +218,9 @@ const {
     color: var(--navy-dark);
   }
 
-  /* Strong as section label (when only child of paragraph before list) */
-  .post-content p strong:only-child {
+  /* Strong as section label (standalone or as only child in paragraph) */
+  .post-content p strong:only-child,
+  .post-content > strong {
     display: block;
     margin-top: 1.5rem; /* Unified: 24px above label */
     margin-bottom: 0.5rem; /* Unified: 8px below label */
