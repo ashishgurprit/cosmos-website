@@ -1,8 +1,8 @@
 ---
 project: Cosmos Web Tech Website
 initialized: 2026-01-05
-last_post_mortem: 2026-01-14T01:20:00Z
-post_mortem_count: 1
+last_post_mortem: 2026-01-14T12:54:17Z
+post_mortem_count: 2
 ---
 
 # Project Memory: Cosmos Web Tech Website
@@ -15,6 +15,7 @@ post_mortem_count: 1
 | Date | Lesson | Files Changed |
 |------|--------|---------------|
 | 2026-01-14 | Decap CMS requires YAML frontmatter, not JavaScript exports | 1 |
+| 2026-01-14 | Astro scoped styles don't apply to slotted content without :global() | 5 |
 
 ## Scripts Created
 
@@ -23,6 +24,9 @@ post_mortem_count: 1
 | `convert-to-content-collections.py` | Convert Astro pages to MDX content collections | Root |
 | `fix-mdx-html.py` | Fix HTML structure issues in MDX files | Root |
 | `fix-mdx-comprehensive.py` | Comprehensive HTML cleaning for MDX | Root |
+| `remove-spacing-br-tags.py` | Remove unnecessary `<br>` tags used for CSS spacing | Root |
+| `add-breaks-to-headings.py` | Add `<br>` tags after headings for spacing | Root |
+| `fix-strong-breaks.py` | Add `<br>` after strong tags before lists | Root |
 
 ## Environment Variables
 
@@ -47,6 +51,8 @@ post_mortem_count: 1
 | 2026-01-14 | Implemented Decap CMS for 4 websites | 12 |
 | 2026-01-14 | Fixed CMS configuration issues (YAML formatting, repo URLs) | 8 |
 | 2026-01-14 | Post-mortem: CMS frontmatter compatibility | 2 |
+| 2026-01-14 | Fixed blog styling: Unified CSS spacing across 3 websites | 60 |
+| 2026-01-14 | Post-mortem: Astro scoped styles and :global() requirement | 2 |
 
 ## Key Decisions
 
