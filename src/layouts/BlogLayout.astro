@@ -164,8 +164,8 @@ const {
   }
 
   .post-content h1 {
-    font-size: 1.625rem; /* 26px - significantly smaller */
-    margin: 2rem 0 1rem;
+    font-size: 1.625rem; /* 26px */
+    margin: 0 0 1.5rem 0; /* Unified: 24px bottom */
     color: var(--navy-dark);
     line-height: 1.4;
     font-weight: 700;
@@ -176,16 +176,16 @@ const {
   }
 
   .post-content h2 {
-    font-size: 1.375rem; /* 22px - more conservative */
-    margin: 2.5rem 0 0.875rem; /* Reasonable space above h2 */
+    font-size: 1.375rem; /* 22px */
+    margin: 2.5rem 0 1rem 0; /* Unified: 40px top, 16px bottom */
     color: var(--navy-dark);
     line-height: 1.4;
     font-weight: 700;
   }
 
   .post-content h3 {
-    font-size: 1.125rem; /* 18px - smaller for better hierarchy */
-    margin: 2rem 0 0.75rem; /* More space above h3 */
+    font-size: 1.125rem; /* 18px */
+    margin: 2rem 0 0.75rem 0; /* Unified: 32px top, 12px bottom */
     color: var(--navy);
     line-height: 1.5;
     font-weight: 600;
@@ -193,42 +193,47 @@ const {
 
   /* Less space when headings follow each other */
   .post-content h2 + h3 {
-    margin-top: 1.5rem;
+    margin-top: 1.5rem; /* Unified: 24px */
   }
 
   .post-content h3 + h4 {
-    margin-top: 1.25rem;
+    margin-top: 1.25rem; /* Unified: 20px */
   }
 
   .post-content h4 {
-    font-size: 1rem; /* 16px - same as body */
-    margin: 1.75rem 0 0.75rem;
+    font-size: 1rem; /* 16px */
+    margin: 1.75rem 0 0.75rem 0; /* Unified: 28px top, 12px bottom */
     color: var(--navy);
     line-height: 1.5;
     font-weight: 600;
   }
 
   .post-content p {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.25rem 0; /* Unified: 20px bottom */
+    line-height: 1.7;
   }
 
   .post-content strong {
     font-weight: 600;
     color: var(--navy-dark);
+  }
+
+  /* Strong as section label (when only child of paragraph before list) */
+  .post-content p strong:only-child {
     display: block;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1.5rem; /* Unified: 24px above label */
+    margin-bottom: 0.5rem; /* Unified: 8px below label */
   }
 
   .post-content ul,
   .post-content ol {
-    margin: 0 0 1.25rem 0;
+    margin: 1.25rem 0; /* Unified: 20px top AND bottom */
     padding-left: 2rem;
-    list-style-position: outside; /* Bullets outside, text indented */
+    list-style-position: outside;
   }
 
   .post-content li {
-    margin: 0.375rem 0;
+    margin: 0.5rem 0; /* Unified: 8px between items */
     line-height: 1.7;
     padding-left: 0;
   }
